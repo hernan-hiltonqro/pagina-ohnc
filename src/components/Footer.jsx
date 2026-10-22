@@ -1,5 +1,6 @@
 import { ArrowUp, Globe } from 'lucide-react';
 import { siteData } from '../data/content';
+import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   const scrollToTop = () => {
@@ -13,7 +14,7 @@ export const Footer = () => {
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 pt-20 pb-40">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           
-          {/* Columna 1: Contacto */}
+          {/* Columna 1: Contacto (Alineado con ContactSection) */}
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-white mb-8">
               Contáctanos
@@ -21,50 +22,45 @@ export const Footer = () => {
             
             <div className="mb-6">
               <p className="text-[11px] uppercase tracking-wider text-white mb-1">Sede Comercial y Operativa</p>
-              <p className="text-sm text-zinc-400">Blvd. Bernardo Quintana, 76000<br/>{siteData.global.location}</p>
+              <p className="text-sm text-zinc-400">Blvd. Bernardo Quintana, C.P. 76000<br/>Santiago de Querétaro, Qro.</p>
             </div>
             
-            <div className="mb-6">
-              <p className="text-[11px] uppercase tracking-wider text-white mb-1">Sede Corporativa</p>
-              <p className="text-sm text-zinc-400">Corporativo Juriquilla, Piso 8<br/>{siteData.global.location}</p>
-            </div>
-
             <div className="mb-6 space-y-2 text-sm text-zinc-400">
-              <p>{siteData.global.contactPhone}</p>
-              <p className="hover:text-white transition-colors cursor-pointer">{siteData.global.contactEmail}</p>
+              <p className="text-[11px] uppercase tracking-wider text-white mb-1">Contacto Directo</p>
+              <p>+52 (442) 000 0000</p>
+              <p className="hover:text-white transition-colors cursor-pointer">expansion@xeniaservices.com</p>
             </div>
-
-
           </div>
 
-          {/* Columna 2: Marcas */}
+          {/* Columna 2: Nuestro Modelo (Reemplaza a Marcas) */}
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-white mb-8">
-              Nuestras Marcas
+              Nuestro Modelo
             </h4>
             <ul className="space-y-4 text-sm">
-              <li><a href="#" className="hover:text-white transition-colors">Hilton Hotels & Resorts</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">DoubleTree by Hilton</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Hampton by Hilton</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Homewood Suites</a></li>
+              <li><Link to="/servicios" className="hover:text-white transition-colors">Comercial e Ingresos</Link></li>
+              <li><Link to="/servicios" className="hover:text-white transition-colors">Gestión Financiera</Link></li>
+              <li><Link to="/servicios" className="hover:text-white transition-colors">Talento Humano</Link></li>
+              <li><Link to="/servicios" className="hover:text-white transition-colors">Operaciones</Link></li>
+              <li><Link to="/servicios" className="hover:text-white transition-colors">Tecnología e Inteligencia</Link></li>
             </ul>
           </div>
 
-          {/* Columna 3: Nosotros */}
+          {/* Columna 3: Nosotros (Rutas actualizadas) */}
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-white mb-8">
               Nosotros
             </h4>
             <ul className="space-y-4 text-sm">
-              <li><a href="#portafolio" className="hover:text-white transition-colors">Portafolio</a></li>
-              <li><a href="#inversionistas" className="hover:text-white transition-colors">Expansión</a></li>
-              <li><a href="#equipo" className="hover:text-white transition-colors">Equipo</a></li>
-              <li><a href="#sostenibilidad" className="hover:text-white transition-colors">Sostenibilidad</a></li>
-              <li><a href="#asociate" className="hover:text-white transition-colors">Asóciate</a></li>
+              <li><Link to="/" className="hover:text-white transition-colors">Inicio</Link></li>
+              <li><Link to="/nosotros" className="hover:text-white transition-colors">Filosofía</Link></li>
+              <li><Link to="/servicios" className="hover:text-white transition-colors">Servicios</Link></li>
+              <li><Link to="/portafolio" className="hover:text-white transition-colors">Portafolio</Link></li>
+              <li><Link to="/inversionistas" className="hover:text-white transition-colors">Expansión</Link></li>
             </ul>
           </div>
 
-          {/* Columna 4: Saber Más */}
+          {/* Columna 4: Saber Más (Limpiado y conectado a la página de Contacto) */}
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-white mb-8">
               Saber Más
@@ -73,9 +69,7 @@ export const Footer = () => {
               <li><a href="#" className="hover:text-white transition-colors">Política de privacidad</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Aviso Legal</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Política de Cookies</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Mapa Web</a></li>
-              <li><a href="#contacto" className="hover:text-white transition-colors">Contacto</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Portal del empleado</a></li>
+              <li><Link to="/contacto" className="hover:text-white transition-colors">Contacto Corporativo</Link></li>
             </ul>
           </div>
 

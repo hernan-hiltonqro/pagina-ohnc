@@ -29,9 +29,12 @@ export const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          <a href="#contacto" className="border border-zinc-900 px-6 py-2.5 text-[11px] uppercase tracking-[0.15em] font-medium text-zinc-900 hover:bg-zinc-900 hover:text-white transition-all">
-            Contacto
-          </a>
+          <Link 
+  to="/contacto" 
+  className="border border-zinc-900 px-6 py-2 text-xs uppercase tracking-[0.2em] font-medium text-zinc-900 hover:bg-zinc-900 hover:text-white transition-all duration-300"
+>
+  Contacto
+</Link>
         </nav>
 
         {/* Botón Móvil */}

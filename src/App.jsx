@@ -8,13 +8,14 @@ import { Footer } from './components/Footer';
 
 // Secciones
 import { Hero } from './components/Hero';
-import { HomeFeatures } from './components/HomeFeatures'; // IMPORTAMOS EL NUEVO COMPONENTE
+import { HomeFeatures } from './components/HomeFeatures'; 
 import { AboutSection } from './components/AboutSection';
 import { TeamSection } from './components/TeamSection';
 import { ServicesSection } from './components/ServicesSection';
 import { ExperienceSection } from './components/ExperienceSection';
 import { PortfolioSection } from './components/PortfolioSection';
 import { InvestorsSection } from './components/InvestorsSection';
+import { ContactSection } from './components/ContactSection'; // Ya lo tenías importado
 
 export default function App() {
   return (
@@ -25,7 +26,6 @@ export default function App() {
         
         <main className="flex-grow pt-20"> 
           <Routes>
-            {/* Página de Inicio: Hero + Nueva sección de características */}
             <Route path="/" element={
               <>
                 <Hero />
@@ -50,6 +50,9 @@ export default function App() {
             <Route path="/portafolio" element={<PortfolioSection />} />
             
             <Route path="/inversionistas" element={<InvestorsSection />} />
+
+            {/* AQUI AGREGAMOS LA NUEVA RUTA */}
+            <Route path="/contacto" element={<ContactSection />} />
           </Routes>
         </main>
         

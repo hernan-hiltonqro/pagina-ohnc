@@ -6,7 +6,7 @@ export const siteData = {
     location: "Querétaro, México"
   },
   team: [
-    { name: "Francisco Cardiel", role: "Dirección de Operaciones", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" },
+    { name: "Francisco Cardiel", role: "Dirección de Gestion", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" },
     { name: "Claudia Alfaro", role: "Dirección de Capital Humano", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" },
     { name: "Karla González", role: "Dirección de Finanzas", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80" },
     { name: "José Macedo", role: "Dirección de TI", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80" }
@@ -24,16 +24,16 @@ export const siteData = {
       name: "Hampton Juriquilla", 
       type: "Select Service",
       desc: "Ejecución ágil y control alineado al formato de servicio.",
-      features: ["Servicio Selecto", "Eficiencia Operativa", "Viajeros de Negocios"]
+      features: ["Servicio Selecto", "Eficiencia Gestionable", "Viajeros de Negocios"]
     }
   ],
   homeFeatures: {
     intro: {
-      tagline: "Más control sobre la operación. Más valor para su hotel.", 
-      focus: "Operación con enfoque en utilidad", 
-      description: "Un modelo de gestión cercano al activo, con disciplina comercial, financiera y operativa para dar claridad al propietario y cuidar el desempeño del hotel.", 
+      tagline: "Más control sobre la gestión. Más valor para su hotel.", 
+      focus: " con enfoque en utilidad", 
+      description: "Un modelo de gestión cercano al activo, con disciplina comercial, financiera y gestionable para dar claridad al propietario y cuidar el desempeño del hotel.", 
       stats: [
-        { number: "02", label: "Hoteles en operación" }, 
+        { number: "02", label: "Hoteles en gestión" }, 
         { number: "02", label: "Formatos de servicio" }, 
         { number: "01", label: "Marco de gestión" } 
       ],
@@ -44,18 +44,18 @@ export const siteData = {
       { name: "Hampton Juriquilla", type: "Select Service", desc: "Ejecución ágil y control alineado al formato de servicio." } 
     ],
     model: {
-      title: "Una operación que se puede seguir.", 
+      title: "Una Gestión que se puede seguir.", 
       description: "La gestión conecta las prioridades del propietario con decisiones cotidianas del hotel: planear, vender, operar y revisar.", 
       cycle: [
         { step: "01", title: "Planear", desc: "Presupuesto, metas, prioridades." }, 
         { step: "02", title: "Vender", desc: "Demanda, tarifa, canales." }, 
-        { step: "03", title: "Operar", desc: "Estándares, equipo, costos." }, 
+        { step: "03", title: "Gestionar", desc: "Estándares, equipo, costos." }, 
         { step: "04", title: "Revisar", desc: "Variaciones, acuerdos, cierre." } 
       ],
       capabilities: [
         { title: "Comercial", items: "Pace, forecast, mix de venta, canales." }, 
         { title: "Finanzas", items: "Presupuesto, real, variación, acción." }, 
-        { title: "Operación", items: "Estándares, costos, productividad, servicio." }, 
+        { title: "Gestión", items: "Estándares, costos, productividad, servicio." }, 
         { title: "Activo", items: "Mantenimiento, disponibilidad, energía." }, 
         { title: "Personas", items: "Selección, capacitación, desarrollo." }, 
         { title: "Experiencia", items: "Comentarios, indicadores, seguimiento." } 
@@ -69,7 +69,7 @@ export const siteData = {
     // ESTA ES LA SECCIÓN QUE FALTABA
     cta: {
       title: "CONVERSEMOS SOBRE SU HOTEL",
-      subtitle: "Su activo merece una operación a la altura de su inversión.",
+      subtitle: "Su activo merece una gestión a la altura de su inversión.",
       action: "Solicite un diagnóstico y construyamos un alcance para su propiedad."
     }
   }
