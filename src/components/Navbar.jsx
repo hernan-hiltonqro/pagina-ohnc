@@ -1,76 +1,58 @@
 import { useState } from 'react';
-import { Menu, X, Building2 } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { siteData } from '../data/content';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Inicio', href: '#inicio' },
-    { name: 'Nosotros', href: '#nosotros' },
-    { name: 'Portafolio', href: '#portafolio' },
-    { name: 'Servicios', href: '#servicios' },
-    { name: 'Inversionistas', href: '#inversionistas' },
+    { name: 'Inicio', href: '/' },
+    { name: 'Nosotros', href: '/nosotros' },
+    { name: 'Servicios', href: '/servicios' },
+    { name: 'Portafolio', href: '/portafolio' },
+    { name: 'Expansión', href: '/inversionistas' },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-zinc-200">
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         
-        {/* Logotipo Corporativo */}
-        <a href="#inicio" className="flex items-center gap-2 text-lg font-bold tracking-wider text-blue-950">
-          <Building2 className="h-6 w-6 text-blue-900" />
-          <span>HILTON OPERADORA</span>
-        </a>
+        <Link to="/" className="text-sm font-serif font-bold tracking-[0.2em] text-zinc-900 uppercase">
+          {siteData.global.brandName}
+        </Link>
 
         {/* Menú Desktop */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-slate-600 hover:text-blue-900 transition"
-            >
+            <Link key={link.name} to={link.href} className="text-[11px] uppercase tracking-[0.15em] font-medium text-zinc-500 hover:text-zinc-900 transition-colors">
               {link.name}
-            </a>
+            </Link>
           ))}
-          <a
-            href="#contacto"
-            className="rounded-lg bg-blue-950 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-900 shadow-sm"
-          >
-            Contacto Corporativo
+          <a href="#contacto" className="border border-zinc-900 px-6 py-2.5 text-[11px] uppercase tracking-[0.15em] font-medium text-zinc-900 hover:bg-zinc-900 hover:text-white transition-all">
+            Contacto
           </a>
         </nav>
 
         {/* Botón Móvil */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 text-slate-700 hover:text-blue-950"
-          aria-label="Abrir menú"
-        >
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-zinc-900">
+          {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
-
-      {/* Menú Móvil */}
+      
+      {/* Menú Móvil Desplegable */}
       {isOpen && (
-        <nav className="md:hidden border-b border-slate-200 bg-white px-4 py-4 space-y-3">
+        <nav className="md:hidden bg-white border-b border-zinc-200 px-6 py-4 space-y-4 shadow-lg">
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
+            <Link 
+              key={link.name} 
+              to={link.href} 
               onClick={() => setIsOpen(false)}
-              className="block text-base font-medium text-slate-700 hover:text-blue-950"
+              className="block text-[11px] uppercase tracking-[0.15em] font-medium text-zinc-600 hover:text-zinc-900"
             >
               {link.name}
-            </a>
+            </Link>
           ))}
-          <a
-            href="#contacto"
-            onClick={() => setIsOpen(false)}
-            className="block text-center rounded-lg bg-blue-950 py-2.5 text-sm font-semibold text-white"
-          >
-            Contacto Corporativo
-          </a>
         </nav>
       )}
     </header>
