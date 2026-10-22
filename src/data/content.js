@@ -62,7 +62,7 @@ export const siteData = {
       ],
       visibility: {
         steps: ["Presupuesto", "Real", "Variación", "Acción"], 
-        note: "Responsables, fechas y cadencia de seguimiento se acuerdan para cada activo." 
+        note: "Visibilidad total en tiempo real a través de nuestro ecosistema digital (BI). Responsables, fechas y cadencia de seguimiento se acuerdan para cada activo." 
       },
       onboarding: ["01 Diagnóstico", "02 Propuesta", "03 Acuerdo", "04 Arranque"] 
     },
