@@ -67,10 +67,12 @@ export const siteData = {
       onboarding: ["01 Diagnóstico", "02 Propuesta", "03 Acuerdo", "04 Arranque"] 
     },
     // ESTA ES LA SECCIÓN QUE FALTABA
+    // ESTA ES LA SECCIÓN QUE FALTABA
     cta: {
-      title: "CONVERSEMOS SOBRE SU HOTEL",
-      subtitle: "Su activo merece una gestión a la altura de su inversión.",
-      action: "Solicite un diagnóstico y construyamos un alcance para su propiedad."
+      eyebrow: "El siguiente capítulo empieza con una conversación",
+      title: "Tu hotel ya tiene una historia. Hablemos de lo que sigue.",
+      description: "Si eres propietario, parte de la familia que dirige el activo o responsable de su operación, conversemos sobre el momento del hotel y el valor que quieres proteger.",
+      buttonLabel: "Preparar conversación"
     }
   }
 };

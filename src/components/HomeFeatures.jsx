@@ -56,23 +56,35 @@ export const HomeFeatures = () => {
         </div>
       </section>
 
-      {/* 2. Portafolio Actual */}
-      <section className="py-24 bg-zinc-50 border-b border-zinc-200">
+      {/* NUEVA SECCIÓN: Experiencia de operación (Reemplaza al antiguo Portafolio Actual) */}
+      <div className="w-full bg-[#14212a] text-white py-24 sm:py-32 my-20">
         <div className="max-w-7xl mx-auto px-6">
-          <FadeIn className="mb-16">
-            <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 block mb-4">Portafolio Actual</span>
+          <FadeIn className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center">
+            
+            <div className="lg:col-span-5">
+              <span className="text-[10px] uppercase tracking-[0.3em] text-[#c8a56d] block mb-4">Experiencia de operación</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif leading-tight mt-6">
+                Dos formatos.<br/><span className="italic text-zinc-400">Una visión de gestión.</span>
+              </h2>
+            </div>
+
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 lg:border-l border-white/20">
+              <div className="p-8 sm:px-12 sm:py-8 lg:py-4">
+                <span className="text-[9px] tracking-[0.16em] uppercase text-[#c8a56d] block mb-4">Full Service</span>
+                <strong className="block font-serif text-2xl mb-2">Hilton Querétaro</strong>
+                <span className="text-[11px] text-zinc-400 font-light">Operación hotelera integral</span>
+              </div>
+              
+              <div className="p-8 sm:px-12 sm:py-8 lg:py-4 sm:border-l border-white/20 border-t sm:border-t-0">
+                <span className="text-[9px] tracking-[0.16em] uppercase text-[#c8a56d] block mb-4">Select Service</span>
+                <strong className="block font-serif text-2xl mb-2">Hampton Juriquilla</strong>
+                <span className="text-[11px] text-zinc-400 font-light">Operación enfocada en eficiencia</span>
+              </div>
+            </div>
+
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-zinc-200 border border-zinc-200">
-            {snapshot.map((hotel, i) => (
-              <FadeIn key={i} delay={i * 0.1} className="bg-white p-12">
-                <span className="text-[10px] uppercase tracking-widest text-zinc-400 block mb-2">{hotel.type}</span>
-                <h3 className="text-2xl font-serif text-zinc-900 mb-4">{hotel.name}</h3>
-                <p className="text-sm text-zinc-500 font-light">{hotel.desc}</p>
-              </FadeIn>
-            ))}
-          </div>
         </div>
-      </section>
+      </div>
 
       {/* 3. Modelo Operativo: Ciclo */}
       <section className="py-32 border-b border-zinc-200">
@@ -165,7 +177,11 @@ export const HomeFeatures = () => {
       </section>
 
       {/* 5. Call To Action */}
-      <section className="relative py-40 bg-zinc-50 border-b border-zinc-200 overflow-hidden">
+      
+      {/* 5. Call To Action */}
+      <section className="relative py-20 sm:py-24 bg-zinc-50 border-b border-zinc-200 overflow-hidden">
+        
+        {/* Contenedor de Imagen de Fondo */}
         <div className="absolute right-0 top-0 w-full lg:w-1/2 h-full opacity-20 lg:opacity-70">
           <img 
             src="https://www.hilton.com/im/en/QROJSHH/22860562/hilton-qro-109.jpg?impolicy=crop&cw=5000&ch=2799&gravity=NorthWest&xposition=0&yposition=6&rw=768&rh=430" 
@@ -175,13 +191,30 @@ export const HomeFeatures = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-zinc-50 via-zinc-50/80 to-transparent"></div>
         </div>
 
+        {/* Contenido de Texto */}
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <FadeIn className="max-w-2xl">
-            <h2 className="text-4xl sm:text-6xl font-serif text-zinc-900 mb-6">{siteData.homeFeatures.cta.title}</h2>
-            <p className="text-lg text-zinc-600 font-light mb-4">{siteData.homeFeatures.cta.subtitle}</p>
-            <p className="text-sm text-zinc-500 font-light mb-12">{siteData.homeFeatures.cta.action}</p>
-            <Link to="/inversionistas" className="inline-block bg-zinc-900 px-10 py-5 text-xs uppercase tracking-[0.2em] font-medium text-white hover:bg-zinc-800 transition-all duration-300">
-              Solicitar Diagnóstico
+          <FadeIn className="max-w-3xl">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-[#c8a56d] block mb-6 font-bold">
+              {siteData.homeFeatures.cta.eyebrow}
+            </span>
+            
+            <h2 className="text-5xl sm:text-6xl lg:text-[4.5rem] font-serif leading-[1.05] mb-8 tracking-tight">
+              <span className="text-zinc-900 block mb-2">
+                {siteData.homeFeatures.cta.title.split('.')[0]}.
+              </span>
+              <span className="text-zinc-500 italic block">
+                {siteData.homeFeatures.cta.title.split('.')[1]?.trim()}.
+              </span>
+            </h2>
+            
+            <p className="text-base sm:text-lg text-zinc-500 font-light mb-10 max-w-2xl leading-relaxed">
+              {siteData.homeFeatures.cta.description}
+            </p>
+            
+            <div className="w-16 h-[1px] bg-zinc-800 mb-10"></div>
+            
+            <Link to="/contacto" className="inline-block bg-zinc-900 px-10 py-5 text-xs uppercase tracking-[0.2em] font-medium text-white hover:bg-zinc-800 transition-all duration-300">
+              {siteData.homeFeatures.cta.buttonLabel}
             </Link>
           </FadeIn>
         </div>

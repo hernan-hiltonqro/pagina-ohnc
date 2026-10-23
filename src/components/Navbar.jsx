@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { siteData } from '../data/content';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  // 1. Añadimos la nueva sección "Legado" al menú
   const navLinks = [
     { name: 'Inicio', href: '/' },
     { name: 'Nosotros', href: '/nosotros' },
+    { name: 'Legado', href: '/legado' },
     { name: 'Servicios', href: '/servicios' },
     { name: 'Portafolio', href: '/portafolio' },
     { name: 'Expansión', href: '/inversionistas' },
@@ -18,8 +19,9 @@ export const Navbar = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-zinc-200">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         
+        {/* 2. Actualizamos el logotipo a GEOH */}
         <Link to="/" className="text-sm font-serif font-bold tracking-[0.2em] text-zinc-900 uppercase">
-          {siteData.global.brandName}
+          GEOH
         </Link>
 
         {/* Menú Desktop */}
@@ -30,11 +32,11 @@ export const Navbar = () => {
             </Link>
           ))}
           <Link 
-  to="/contacto" 
-  className="border border-zinc-900 px-6 py-2 text-xs uppercase tracking-[0.2em] font-medium text-zinc-900 hover:bg-zinc-900 hover:text-white transition-all duration-300"
->
-  Contacto
-</Link>
+            to="/contacto" 
+            className="border border-zinc-900 px-6 py-2 text-xs uppercase tracking-[0.2em] font-medium text-zinc-900 hover:bg-zinc-900 hover:text-white transition-all duration-300"
+          >
+            Contacto
+          </Link>
         </nav>
 
         {/* Botón Móvil */}
@@ -56,6 +58,14 @@ export const Navbar = () => {
               {link.name}
             </Link>
           ))}
+          {/* El botón de contacto también debería estar disponible en móvil */}
+          <Link 
+            to="/contacto" 
+            onClick={() => setIsOpen(false)}
+            className="block text-[11px] uppercase tracking-[0.15em] font-medium text-zinc-900 hover:text-zinc-600 pt-2"
+          >
+            Contacto
+          </Link>
         </nav>
       )}
     </header>

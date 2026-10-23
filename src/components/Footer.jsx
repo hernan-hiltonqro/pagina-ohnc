@@ -14,7 +14,7 @@ export const Footer = () => {
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 pt-20 pb-40">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           
-          {/* Columna 1: Contacto (Alineado con ContactSection) */}
+          {/* Columna 1: Contacto */}
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-white mb-8">
               Contáctanos
@@ -28,11 +28,11 @@ export const Footer = () => {
             <div className="mb-6 space-y-2 text-sm text-zinc-400">
               <p className="text-[11px] uppercase tracking-wider text-white mb-1">Contacto Directo</p>
               <p>+52 (442) 000 0000</p>
-              <p className="hover:text-white transition-colors cursor-pointer">expansion@xeniaservices.com</p>
+              <p className="hover:text-white transition-colors cursor-pointer">expansion@geoh.com</p>
             </div>
           </div>
 
-          {/* Columna 2: Nuestro Modelo (Reemplaza a Marcas) */}
+          {/* Columna 2: Nuestro Modelo */}
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-white mb-8">
               Nuestro Modelo
@@ -46,7 +46,7 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Columna 3: Nosotros (Rutas actualizadas) */}
+          {/* Columna 3: Nosotros (Actualizado con Legado) */}
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-white mb-8">
               Nosotros
@@ -54,13 +54,14 @@ export const Footer = () => {
             <ul className="space-y-4 text-sm">
               <li><Link to="/" className="hover:text-white transition-colors">Inicio</Link></li>
               <li><Link to="/nosotros" className="hover:text-white transition-colors">Filosofía</Link></li>
+              <li><Link to="/legado" className="hover:text-white transition-colors">Legado</Link></li>
               <li><Link to="/servicios" className="hover:text-white transition-colors">Servicios</Link></li>
               <li><Link to="/portafolio" className="hover:text-white transition-colors">Portafolio</Link></li>
               <li><Link to="/inversionistas" className="hover:text-white transition-colors">Expansión</Link></li>
             </ul>
           </div>
 
-          {/* Columna 4: Saber Más (Limpiado y conectado a la página de Contacto) */}
+          {/* Columna 4: Saber Más */}
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-white mb-8">
               Saber Más
@@ -76,10 +77,10 @@ export const Footer = () => {
         </div>
       </div>
 
-      {/* Marca de agua gigante de fondo */}
+      {/* Marca de agua gigante de fondo (Actualizada a GEOH) */}
       <div className="absolute bottom-16 left-0 w-full overflow-hidden flex justify-center pointer-events-none select-none opacity-[0.03]">
         <span className="text-[18vw] font-serif font-bold leading-none tracking-tighter text-white whitespace-nowrap">
-          XENIA
+          GEOH
         </span>
       </div>
 
@@ -100,7 +101,7 @@ export const Footer = () => {
         <div className="max-w-[1400px] mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center text-xs text-zinc-400 gap-4">
           <div className="flex items-center gap-2">
             <Globe className="h-5 w-5" />
-            <span>{siteData.global.brandName} © {new Date().getFullYear()}</span>
+            <span>GEOH © {new Date().getFullYear()}</span>
           </div>
           
           <div className="tracking-wide">

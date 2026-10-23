@@ -1,120 +1,163 @@
+import { useState } from 'react';
 import { FadeIn } from './FadeIn';
 
 const services = [
   {
-    title: "Comercial e Ingresos",
-    subtitle: "Inteligencia Comercial",
-    philosophy: "Transformamos información en decisiones de valor. Proponemos al mercado, fortalecemos la competitividad y cumplimos la promesa al huésped.",
+    number: "01",
+    title: "Inteligencia comercial e ingresos",
+    philosophy: "Cliente, momento, precio, canal, ritmo de venta, forecast y mezcla rentable.",
     img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80",
-    points: [
-      "Segmentación (local, global, mayoristas, grupos) e identificación de market share.",
-      "Identificación de generadores de demanda y control en venta para grupos.",
-      "Control de inventario en OTA's, GDS, plataformas electrónicas y central de reservas.",
-      "Estructura tarifaria, pronósticos (forecast) y optimización de precios."
+    details: [
+      "Optimización dinámica de tarifas (Revenue Management).",
+      "Análisis continuo de mercado y set competitivo.",
+      "Gestión eficiente de canales de distribución y venta directa."
     ]
   },
   {
-    title: "Gestión Financiera",
-    subtitle: "Responsabilidad Financiera",
-    philosophy: "Cuidamos cada variable, anticipamos riesgos y corregimos desviaciones. Buscamos estabilidad, eficiencia y rentabilidad sostenible.",
+    number: "02",
+    title: "Gestión financiera y control",
+    philosophy: "Ingresos, nómina, compras, inventarios, caja, riesgos y desviaciones.",
     img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
-    points: [
-      "15 días de rotación en cartera de crédito (CXC) y aseguramiento de capital de trabajo.",
-      "Manejo de tesorería y cuentas por pagar (CXP) mediante firmas mancomunadas.",
-      "Control de costos por cuarto ocupado basado en pronósticos.",
-      "Entrega de estados financieros a 10 días y cumplimiento de impuestos (ISH, IVA)."
+    details: [
+      "Auditoría y protección del flujo de caja.",
+      "Control estricto de nómina y costos operativos.",
+      "Reporteo de desviaciones presupuestales en tiempo real."
     ]
   },
   {
-    title: "Talento Humano",
-    subtitle: "Talento que Crece",
-    philosophy: "Proponemos carreras competitivas, desarrollamos líderes y fortalecemos una cultura de compromiso, crecimiento y pertenencia.",
-    img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
-    points: [
-      "Gestión de cartera de aspirantes y cumplimiento de programas de capacitación de la franquicia.",
-      "Sistema de evaluación de desempeño, coaching y preparación de talentos.",
-      "Administración estricta de nómina, IMSS, Infonavit y control de incrementos.",
-      "Gestión de contratos y relaciones sindicales o laborales."
-    ]
-  },
-  {
-    title: "Operaciones",
-    subtitle: "Operaciones que Evolucionan",
-    philosophy: "Medimos, analizamos y ajustamos por segmento, fieles al concepto, la identidad y los estándares de cada marca.",
+    number: "03",
+    title: "Operación, marca y experiencia",
+    philosophy: "Estándares, consistencia del servicio, comentarios y resolución de problemas.",
     img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80",
-    points: [
-      "Mantenimiento preventivo para garantizar propiedades seguras e impecables.",
-      "Auditorías de seguridad y revisiones periódicas de infraestructura tecnológica.",
-      "Integración de sistemas hoteleros (PMS, POS) y alianzas con proveedores de equipo.",
-      "Intranet y aplicaciones exclusivas para facilitar la operación diaria."
+    details: [
+      "Alineación total con los estándares de la marca hotelera.",
+      "Monitoreo de reputación online y encuestas de satisfacción.",
+      "Planes de acción inmediatos ante fricciones en el servicio."
     ]
   },
-  // NUEVO PILAR TECNOLÓGICO
   {
-    title: "Tecnología e Inteligencia de Datos",
-    subtitle: "Ecosistema Digital",
-    philosophy: "Centralizamos la operación a través de plataformas digitales para optimizar la toma de decisiones. Transformamos datos en tiempo real en rentabilidad y transparencia.",
+    number: "04",
+    title: "Talento y liderazgo operativo",
+    philosophy: "Desarrollo de gestores capaces de leer indicadores, decidir y hacerse responsables.",
+    img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+    details: [
+      "Capacitación continua para líderes de departamento.",
+      "Cultura orientada a la rendición de cuentas (Accountability).",
+      "Retención de talento clave mediante planes de crecimiento."
+    ]
+  },
+  {
+    number: "05",
+    title: "Proveedores, tecnología y activo",
+    philosophy: "Aliados confiables, procesos más simples, disponibilidad y uso disciplinado de recursos.",
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-    points: [
-      "Implementación de herramientas de Business Intelligence (BI) para reporteo y visibilidad en tiempo real.",
-      "Sistemas PMS y POS basados en la nube para una gestión corporativa centralizada y segura.",
-      "Uso de algoritmos de Revenue Management para la optimización dinámica de la tarifa diaria.",
-      // NUEVO ENFOQUE DE DIGITALIZACIÓN FÍSICA
-      "Digitalización de la operación física: migración de bitácoras, checklists y flujos de revisión a plataformas móviles (Cultura Paperless)."
+    details: [
+      "Implementación de ecosistemas digitales (PMS, POS, BI).",
+      "Mantenimiento preventivo para la protección del inmueble.",
+      "Negociación a escala con proveedores estratégicos."
     ]
   }
 ];
 
 export const ServicesSection = () => {
+  // Estado para controlar qué acordeón está abierto. null = todos cerrados.
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleAccordion = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
-    <section id="servicios" className="py-32 bg-white border-b border-zinc-200">
+    <section id="servicios" className="py-32 bg-[#e9e2d5] border-b border-zinc-300">
       <div className="max-w-7xl mx-auto px-6">
         
-        <FadeIn className="mb-24 text-center">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 block mb-4">Áreas de Especialidad</span>
-          <h2 className="text-3xl sm:text-5xl font-serif text-zinc-900 mb-6">Nuestro Modelo Operativo</h2>
-          <div className="w-12 h-[1px] bg-zinc-900 mx-auto"></div>
-        </FadeIn>
+        <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-16 lg:gap-24 items-start">
+          
+          {/* Columna Izquierda (Fija) */}
+          <FadeIn className="lg:sticky lg:top-32">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-8 h-[1px] bg-[#8a7048]"></div>
+              <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-[#8a7048]">
+                Gestión integral, con sentido
+              </span>
+            </div>
+            
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif text-zinc-900 leading-[1.05] mb-8 tracking-tight">
+              Una sola <br/> agenda para <br/> cuidar el <br/> negocio.
+            </h2>
+            
+            <p className="text-sm text-[#67706d] font-light leading-relaxed max-w-sm">
+              Unimos las áreas que determinan cómo se siente el hotel, cómo opera y qué valor deja a sus propietarios.
+            </p>
+          </FadeIn>
 
-        <div className="space-y-32">
-          {services.map((srv, idx) => {
-            const isEven = idx % 2 === 0;
-            return (
-              <div key={idx} className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-20 items-center`}>
-                
-                <FadeIn className="w-full lg:w-1/2">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-zinc-100 group">
-                    <div className="absolute inset-0 bg-zinc-900/10 group-hover:bg-transparent transition-colors duration-1000 z-10 pointer-events-none"></div>
-                    <img 
-                      src={srv.img} 
-                      alt={srv.title}
-                      className="w-full h-full object-cover saturate-50 brightness-95 transition-all duration-[1500ms] ease-out group-hover:scale-105 group-hover:saturate-100 group-hover:brightness-100"
-                      loading="lazy"
-                    />
+          {/* Columna Derecha (Acordeón) */}
+          <FadeIn delay={0.2} className="border-t border-[#c7bdab]">
+            {services.map((srv, idx) => {
+              const isOpen = openIndex === idx;
+
+              return (
+                <div key={idx} className="border-b border-[#c7bdab]">
+                  {/* Cabecera Clickable */}
+                  <button 
+                    onClick={() => toggleAccordion(idx)}
+                    className="w-full flex items-start text-left py-8 sm:py-10 group focus:outline-none"
+                  >
+                    {/* Número */}
+                    <span className="w-12 sm:w-16 shrink-0 font-serif italic text-lg sm:text-xl text-[#9e7947] pt-0.5">
+                      {srv.number}
+                    </span>
+                    
+                    {/* Textos */}
+                    <div className="flex-grow pr-6">
+                      <h3 className="text-xl sm:text-2xl font-serif text-zinc-900 mb-2 group-hover:text-[#9e7947] transition-colors">
+                        {srv.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-[#68706e] font-light leading-relaxed">
+                        {srv.philosophy}
+                      </p>
+                    </div>
+
+                    {/* Ícono + / - */}
+                    <span className="shrink-0 text-2xl font-light text-[#9e7947] transition-transform duration-300">
+                      {isOpen ? '−' : '+'}
+                    </span>
+                  </button>
+
+                  {/* Contenido Expandible (Imágenes y detalles) */}
+                  <div 
+                    className={`grid transition-all duration-500 ease-in-out overflow-hidden ${
+                      isOpen ? 'grid-rows-[1fr] opacity-100 mb-10' : 'grid-rows-[0fr] opacity-0'
+                    }`}
+                  >
+                    <div className="min-h-0 pl-12 sm:pl-16">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-center pt-2">
+                        {/* Detalles adicionales */}
+                        <ul className="space-y-3 text-xs text-zinc-600 font-light">
+                          {srv.details.map((detail, i) => (
+                            <li key={i} className="flex gap-3">
+                              <span className="text-[#9e7947] mt-0.5">▪</span> {detail}
+                            </li>
+                          ))}
+                        </ul>
+                        {/* Imagen referencial */}
+                        <div className="aspect-[4/3] w-full overflow-hidden">
+                          <img 
+                            src={srv.img} 
+                            alt={srv.title} 
+                            className="w-full h-full object-cover grayscale mix-blend-multiply hover:grayscale-0 hover:mix-blend-normal transition-all duration-700"
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </FadeIn>
+                  
+                </div>
+              );
+            })}
+          </FadeIn>
 
-                <FadeIn className="w-full lg:w-1/2" delay={0.2}>
-                  <span className="text-[9px] uppercase tracking-[0.2em] text-zinc-400 block mb-3">{srv.subtitle}</span>
-                  <h3 className="text-3xl lg:text-4xl font-serif text-zinc-900 mb-6">{srv.title}</h3>
-                  <p className="text-sm text-zinc-700 font-medium leading-relaxed mb-8 border-l-2 border-zinc-900 pl-4">
-                    {srv.philosophy}
-                  </p>
-                  <ul className="space-y-4">
-                    {srv.points.map((point, i) => (
-                      <li key={i} className="flex items-start gap-3 text-xs text-zinc-500">
-                        <span className="w-1 h-1 bg-zinc-900 rounded-full mt-1.5 shrink-0"></span>
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </FadeIn>
-                
-              </div>
-            );
-          })}
         </div>
-
       </div>
     </section>
   );

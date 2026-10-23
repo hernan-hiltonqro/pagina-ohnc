@@ -1,4 +1,5 @@
 import { FadeIn } from './FadeIn';
+import { OwnerCentricity } from './OwnerCentricity';
 
 export const AboutSection = () => {
   return (
@@ -6,22 +7,89 @@ export const AboutSection = () => {
       <div className="max-w-7xl mx-auto px-6">
         
         {/* 1. ¿Quiénes Somos? (Texto literal del documento) */}
-        <FadeIn className="max-w-4xl mx-auto text-center space-y-10">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500">
-            Nuestra Filosofía
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-serif text-zinc-900 leading-tight">
-            Somos una operadora hotelera especializada en la gestión estratégica e integral de activos hoteleros.
-          </h2>
-          <p className="text-sm sm:text-base text-zinc-600 leading-relaxed max-w-2xl mx-auto font-light">
-            Integramos inteligencia comercial, responsabilidad financiera, desarrollo del talento y excelencia operativa para transformar información en decisiones de valor, cumplir nuestra promesa al huésped y construir rentabilidad sostenible.
-          </p>
-          <div className="mt-12 pt-12 border-t border-zinc-200">
-            <p className="text-xl sm:text-2xl font-serif text-zinc-900 italic tracking-tight">
-              "Entendemos el negocio. Visualizamos su potencial. Ejecutamos con disciplina."
-            </p>
-          </div>
-        </FadeIn>
+        <FadeIn className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+            
+            {/* Columna Izquierda: Título Principal */}
+            <div className="lg:col-span-7">
+              <span className="text-[10px] uppercase tracking-[0.3em] text-[#a27642] block mb-6 font-bold">
+                Nuestra Filosofía
+              </span>
+              <h2 className="text-4xl sm:text-5xl md:text-[3.5rem] font-serif text-[#0f2035] leading-[1.1] tracking-tight">
+                Somos una operadora hotelera especializada en la gestión estratégica e integral de activos hoteleros.
+              </h2>
+            </div>
+
+            {/* Columna Derecha: Descripción y Cita */}
+            <div className="lg:col-span-5 lg:pt-14">
+              <p className="text-base sm:text-lg text-zinc-600 font-light leading-relaxed mb-12">
+                Integramos inteligencia comercial, responsabilidad financiera, desarrollo del talento y excelencia operativa para transformar información en decisiones de valor, cumplir nuestra promesa al huésped y construir rentabilidad sostenible.
+              </p>
+              
+              <div className="pl-6 border-l border-[#c8a56d]">
+                <p className="text-xl sm:text-2xl font-serif italic text-[#0f2035] leading-relaxed">
+                  "Entendemos el negocio. Visualizamos su potencial. Ejecutamos con disciplina."
+                </p>
+              </div>
+            </div>
+
+          </FadeIn>
+
+        {/* 2. Owner Centricity (Componente Interactivo) */}
+        <OwnerCentricity />
+
+        {/* 3. Evolución y Modelo de Gestión */}
+      <section className="py-32 border-b border-zinc-200 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          
+          <FadeIn className="mb-20">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-8 h-[1px] bg-[#a27642]"></div>
+              <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#a27642]">
+                Nuestra Evolución
+              </span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-serif text-[#0b172a] leading-[1.1] tracking-tight">
+              De la visión fundadora <br/>
+              <span className="italic text-[#5c6b7f] font-light">al siguiente capítulo.</span>
+            </h2>
+          </FadeIn>
+
+          <FadeIn delay={0.2}>
+            <div className="flex overflow-x-auto pb-12 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+              
+              {/* Hito 1: 2013 */}
+              <div className="flex-none w-[85vw] sm:w-[350px] md:w-[400px] relative snap-start">
+                <div className="absolute top-2 left-0 w-full h-[1px] bg-zinc-200"></div>
+                <div className="absolute top-1 left-0 w-2.5 h-2.5 bg-[#a27642] rounded-full ring-4 ring-white z-10"></div>
+                
+                <div className="pt-10 pr-12">
+                  <span className="text-4xl sm:text-5xl font-serif text-[#0b172a] mb-2 block">2013</span>
+                  <h3 className="text-[10px] uppercase tracking-[0.2em] text-[#5c6b7f] font-bold mb-4">Fundación de Xenia</h3>
+                  <p className="text-sm text-zinc-500 font-light leading-relaxed">
+                    Nace la empresa, sentando las bases para estructurar y profesionalizar la operación hotelera.
+                  </p>
+                </div>
+              </div>
+
+              {/* Hito 2: Hoy */}
+              <div className="flex-none w-[85vw] sm:w-[350px] md:w-[400px] relative snap-start">
+                <div className="absolute top-2 left-0 w-full h-[1px] bg-zinc-200"></div>
+                <div className="absolute top-1 left-0 w-2.5 h-2.5 bg-[#0b172a] rounded-full ring-4 ring-white z-10"></div>
+                
+                <div className="pt-10 pr-12">
+                  <span className="text-4xl sm:text-5xl font-serif text-[#0b172a] mb-2 block">Hoy</span>
+                  <h3 className="text-[10px] uppercase tracking-[0.2em] text-[#a27642] font-bold mb-4">Evolución a GEOH</h3>
+                  <p className="text-sm text-zinc-500 font-light leading-relaxed">
+                    Transición estratégica. Consolidamos nuestra propuesta de valor basada en Owner Centricity y hospitalidad de alta gama.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </FadeIn>
+
+        </div>
+      </section>
 
         {/* 2. Tres Pilares. Una forma de gestionar. */}
         <FadeIn delay={0.2} className="mt-32">

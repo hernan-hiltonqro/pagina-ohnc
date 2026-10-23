@@ -2,59 +2,80 @@ import { FadeIn } from './FadeIn';
 import { siteData } from '../data/content';
 
 export const PortfolioSection = () => {
+  const { portfolio } = siteData;
+
   return (
-    <section id="portafolio" className="py-32 bg-white text-zinc-900 border-b border-zinc-200">
-      <div className="max-w-7xl mx-auto px-6">
-        
-        <FadeIn className="mb-24 text-center">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 block mb-4">Propiedades</span>
-          <h2 className="text-4xl sm:text-5xl font-serif tracking-tight mb-6">Nuestro Portafolio</h2>
-          <div className="w-12 h-[1px] bg-zinc-900 mx-auto"></div>
+    <section className="py-32 bg-white border-b border-zinc-200 overflow-hidden">
+      
+      {/* Cabecera Editorial */}
+      <div className="max-w-7xl mx-auto px-6 mb-32 text-center">
+        <FadeIn>
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="w-6 h-[1px] bg-[#a27642]"></div>
+            <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#a27642]">
+              Propiedades
+            </span>
+            <div className="w-6 h-[1px] bg-[#a27642]"></div>
+          </div>
+          <h2 className="font-serif tracking-tight flex flex-col items-center">
+            <span className="text-5xl sm:text-6xl md:text-7xl leading-[1] text-[#0b172a] block">
+              Activos
+            </span>
+            <span className="text-5xl sm:text-6xl md:text-7xl leading-[1] text-[#5c6b7f] italic font-light block mt-1">
+              en gestión.
+            </span>
+          </h2>
         </FadeIn>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-          {siteData.portfolio.map((item, index) => (
-            <FadeIn key={index} delay={index * 0.15}>
-              <article className="group cursor-pointer">
-                
-                <div className="relative aspect-[4/3] w-full bg-white mb-8 border border-zinc-200 p-3 sm:p-5 transition-colors duration-700 group-hover:border-zinc-400 shadow-sm">
-                  <div className="w-full h-full overflow-hidden relative bg-zinc-100">
-                    {/* Capa zinc translúcida para apagar colores chillones */}
-                    <div className="absolute inset-0 bg-zinc-900/20 group-hover:bg-transparent transition-colors duration-1000 z-10 pointer-events-none"></div>
-                    
-                    <img 
-                      src={item.img} 
-                      alt={item.name}
-                      
-                      className="w-full h-full object-cover saturate-50 brightness-90 transition-all duration-[1500ms] ease-out group-hover:scale-105 group-hover:saturate-100 group-hover:brightness-100"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-                
-                <div className="text-center sm:text-left flex flex-col sm:flex-row sm:justify-between sm:items-start gap-6 px-2">
-                  <div className="flex-1">
-                    <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-500">{item.type}</span>
-                    <h3 className="text-2xl font-serif mt-2 text-zinc-900 group-hover:text-zinc-600 transition-colors duration-500">{item.name}</h3>
-                    <p className="text-sm text-zinc-600 font-light mt-4 max-w-sm mx-auto sm:mx-0">
-                      {item.desc}
-                    </p>
-                  </div>
-                  
-                  <div className="flex flex-col gap-2 pt-1 border-t sm:border-t-0 sm:border-l border-zinc-200 sm:pl-6">
-                    {item.features.map((feature, i) => (
-                      <span key={i} className="text-[9px] uppercase tracking-widest text-zinc-400 font-medium">
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-              </article>
-            </FadeIn>
-          ))}
-        </div>
       </div>
+
+      {/* Listado en Zig-Zag */}
+      <div className="max-w-7xl mx-auto px-6 space-y-32">
+        {portfolio.map((item, idx) => {
+          const isEven = idx % 2 === 0;
+          return (
+            <FadeIn key={idx} className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-24 items-center`}>
+              
+              {/* Imagen Fotográfica */}
+              <div className="w-full lg:w-3/5">
+                <div className="aspect-[16/10] overflow-hidden shadow-xl relative group bg-[#0b172a]">
+                  <img 
+                    src={item.img} 
+                    alt={item.name} 
+                    className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 opacity-90 group-hover:opacity-100" 
+                  />
+                </div>
+              </div>
+
+              {/* Ficha Técnica */}
+              <div className="w-full lg:w-2/5">
+                <span className="text-[10px] uppercase tracking-[0.3em] text-[#a27642] font-bold block mb-4">
+                  {item.type}
+                </span>
+                <h3 className="text-3xl sm:text-4xl font-serif text-[#0b172a] mb-6 leading-tight">
+                  {item.name}
+                </h3>
+                <p className="text-base text-[#334155] font-light mb-8 leading-relaxed">
+                  {item.desc}
+                </p>
+                
+                {/* Lista de características operativas */}
+                <div className="pt-8 border-t border-zinc-200">
+                  <ul className="space-y-4">
+                    {item.features.map((feat, i) => (
+                      <li key={i} className="flex items-center gap-4 text-sm text-[#5c6b7f] font-light">
+                        <span className="w-1.5 h-1.5 border border-[#a27642] rounded-full flex-shrink-0"></span>
+                        {feat}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              
+            </FadeIn>
+          );
+        })}
+      </div>
+
     </section>
   );
 };

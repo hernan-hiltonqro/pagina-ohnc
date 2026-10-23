@@ -1,46 +1,39 @@
 import { FadeIn } from './FadeIn';
-import { siteData } from '../data/content';
 
 export const Hero = () => {
   return (
-    <section id="inicio" className="relative min-h-screen w-full bg-white flex flex-col justify-center items-center px-6 pt-20 border-b border-zinc-200 overflow-hidden">
+    <section className="relative pt-48 pb-40 bg-[#f2f5f8] flex flex-col items-center justify-center text-center px-6 overflow-hidden border-b border-zinc-300">
       
-      <div className="max-w-7xl mx-auto w-full flex flex-col items-center text-center">
-        
-        {/* Antetítulo conectado a Xenia Services */}
-        <FadeIn delay={0.2}>
-          <span className="text-[10px] md:text-xs uppercase tracking-[0.4em] text-zinc-400 mb-8 block font-medium">
-            {siteData.global.brandName}
-          </span>
-        </FadeIn>
-        
-        {/* Título Gigante Monumental */}
-        <FadeIn delay={0.4}>
-          <h1 className="text-6xl sm:text-8xl lg:text-[11rem] font-serif text-zinc-900 leading-[0.85] tracking-tighter mb-8">
-            Hospitalidad
-            <br />
-            <span className="italic text-zinc-300 pr-4">Elevada.</span>
+      <div className="relative z-10 max-w-5xl mx-auto">
+        <FadeIn>
+          
+          {/* Etiqueta Superior (GEOH en Dorado) */}
+          <div className="flex items-center justify-center gap-4 mb-10">
+            <div className="w-8 h-[1px] bg-[#a27642]"></div>
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.4em] font-bold text-[#a27642]">
+              GEOH
+            </span>
+            <div className="w-8 h-[1px] bg-[#a27642]"></div>
+          </div>
+          
+          {/* Título Principal de Alto Contraste (Azul-Negro y Gris) */}
+          <h1 className="font-serif tracking-tight flex flex-col items-center">
+            <span className="text-[5rem] sm:text-[8rem] md:text-[10rem] leading-[0.85] text-[#0b172a] block drop-shadow-sm">
+              Hospitalidad
+            </span>
+            <span className="text-[5rem] sm:text-[8rem] md:text-[10rem] leading-[0.85] text-[#5c6b7f] italic font-light block -mt-2 sm:-mt-6">
+              Elevada.
+            </span>
           </h1>
-        </FadeIn>
-
-        {/* Descripción breve */}
-        <FadeIn delay={0.6}>
-          <p className="max-w-lg mx-auto text-sm sm:text-base text-zinc-500 font-light leading-relaxed mt-8">
+          
+          {/* Párrafo Descriptivo */}
+          <p className="mt-14 text-base sm:text-lg text-[#334155] font-light max-w-2xl mx-auto leading-relaxed">
             Transformamos activos hoteleros en experiencias memorables y negocios rentables a través de una operación impecable y estándares globales.
           </p>
+          
         </FadeIn>
-
-        {/* Indicador de Scroll Minimalista */}
-        <FadeIn delay={0.8} className="mt-20">
-          <a href="#nosotros" className="inline-flex flex-col items-center gap-6 text-zinc-400 hover:text-zinc-900 transition-colors group">
-            <span className="text-[9px] uppercase tracking-[0.3em]">Descubrir</span>
-            <div className="w-[1px] h-16 bg-zinc-200 group-hover:bg-zinc-900 transition-colors relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1/3 bg-zinc-400 animate-bounce"></div>
-            </div>
-          </a>
-        </FadeIn>
-
       </div>
+      
     </section>
   );
 };
