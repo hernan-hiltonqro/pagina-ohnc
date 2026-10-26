@@ -78,7 +78,7 @@ export const HomeFeatures = () => {
               </div>
               
               <div className="p-8 sm:px-12 sm:py-8 lg:py-4 sm:border-l border-white/20 border-t sm:border-t-0">
-                <span className="text-[9px] tracking-[0.16em] uppercase text-[#c8a56d] block mb-4">Select Service</span>
+                <span className="text-[9px] tracking-[0.16em] uppercase text-[#c8a56d] block mb-4">Focused Service</span>
                 <strong className="block font-serif text-2xl mb-2">Hampton Juriquilla</strong>
                 <span className="text-[11px] text-zinc-400 font-light">Operación enfocada en eficiencia</span>
               </div>

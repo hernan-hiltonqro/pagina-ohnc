@@ -6,7 +6,7 @@ export const PortfolioSection = () => {
       type: "Full Service", // <--- Aquí quedó corregido a solo Full Service
       name: "Hilton Querétaro",
       desc: "Activo operado bajo rigurosos estándares internacionales, diseñado para maximizar los ingresos del propietario a través de una oferta integral que atiende tanto al huésped de placer como a grupos corporativos.",
-      img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=80", 
+      img: "https://www.hilton.com/im/en/QROJSHH/22860656/hilton-qro-7.jpg?impolicy=crop&cw=5000&ch=2799&gravity=NorthWest&xposition=0&yposition=6&rw=768&rh=430", 
       features: [
         "Eventos y Convenciones",
         "Alta Gastronomía"
@@ -16,7 +16,7 @@ export const PortfolioSection = () => {
       type: "Focused Service", // <--- Aquí quedó como Focused Service
       name: "Hampton Juriquilla",
       desc: "Propiedad optimizada para mantener altos niveles de ocupación con una estructura de costos eficiente, garantizando rentabilidad sin comprometer la promesa al huésped.",
-      img: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1600&q=80", 
+      img: "https://images.trvl-media.com/lodging/110000000/109390000/109388300/109388278/46cf3a70.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill", 
       features: [
         "Eficiencia Gestionable",
         "Viajeros de Negocios"

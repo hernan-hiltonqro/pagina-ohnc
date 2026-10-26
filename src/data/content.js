@@ -22,7 +22,7 @@ export const siteData = {
     { 
       img: "https://images.trvl-media.com/lodging/110000000/109390000/109388300/109388278/4a2ebe4a.jpg?impolicy=resizecrop&rw=1200&ra=fit", 
       name: "Hampton Juriquilla", 
-      type: "Select Service",
+      type: "Focused Service",
       desc: "Ejecución ágil y control alineado al formato de servicio.",
       features: ["Servicio Selecto", "Eficiencia Gestionable", "Viajeros de Negocios"]
     }
@@ -37,11 +37,11 @@ export const siteData = {
         { number: "02", label: "Formatos de servicio" }, 
         { number: "01", label: "Marco de gestión" } 
       ],
-      proposal: ["Rentabilidad", "Ejecución", "Visibilidad"] 
+      proposal: [] 
     },
     snapshot: [
       { name: "Hilton Querétaro", type: "Full Service", desc: "Gestión integral para una operación de servicio completo." }, 
-      { name: "Hampton Juriquilla", type: "Select Service", desc: "Ejecución ágil y control alineado al formato de servicio." } 
+      { name: "Hampton Juriquilla", type: "Focused Service", desc: "Ejecución ágil y control alineado al formato de servicio." } 
     ],
     model: {
       title: "Una Gestión que se puede seguir.", 
