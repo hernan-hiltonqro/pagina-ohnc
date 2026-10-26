@@ -107,32 +107,50 @@ export const HomeFeatures = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mt-32">
+         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mt-32">
+            
+            {/* Imagen Izquierda */}
             <div className="lg:col-span-5 hidden lg:block">
               <div className="aspect-[4/5] w-full overflow-hidden bg-zinc-100 border border-zinc-200">
                 <img 
                   src="https://images.trvl-media.com/lodging/4000000/3600000/3599000/3598923/daee694c.jpg?impolicy=resizecrop&rw=1200&ra=fit" 
                   alt="Corporativo" 
-            
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
             </div>
             
-            <div className="lg:col-span-7">
+            {/* Contenido Derecha: Títulos numerados sin descripción */}
+            <div className="lg:col-span-7 flex flex-col justify-center">
               <FadeIn className="mb-12">
                 <h3 className="text-3xl font-serif text-zinc-900">Capacidades que protegen el resultado</h3>
               </FadeIn>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-12 gap-x-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-10 gap-x-8">
                 {model.capabilities.map((cap, i) => (
-                  <FadeIn key={i} delay={i * 0.1} className="border-t border-zinc-200 pt-6">
-                    <h4 className="text-sm uppercase tracking-widest text-zinc-900 mb-3 font-medium">{cap.title}</h4>
-                    <p className="text-xs text-zinc-500 font-light leading-relaxed">{cap.items}</p>
+                  <FadeIn key={i} delay={i * 0.1} className="border-t border-zinc-200 pt-5">
+                    {/* Título con numeración y sin descripción */}
+                    <h4 className="text-xs uppercase tracking-widest text-zinc-900 font-medium flex items-start gap-3">
+                      <span className="text-zinc-400 font-serif italic text-base leading-none mt-0.5">
+                        0{i + 1}
+                      </span>
+                      <span className="leading-relaxed">{cap.title}</span>
+                    </h4>
                   </FadeIn>
                 ))}
               </div>
+
+              {/* Botón hacia Servicios */}
+              <FadeIn delay={0.4} className="mt-14 pt-8 border-t border-zinc-200">
+                <Link 
+                  to="/servicios" 
+                  className="inline-flex items-center gap-3 text-[10px] sm:text-xs uppercase tracking-[0.2em] font-bold text-zinc-900 hover:text-zinc-500 transition-colors border-b border-zinc-900 hover:border-zinc-500 pb-1"
+                >
+                  Detalle <span>→</span>
+                </Link>
+              </FadeIn>
             </div>
+
           </div>
 
         </div>

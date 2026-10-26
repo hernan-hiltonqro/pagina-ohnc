@@ -53,12 +53,26 @@ export const siteData = {
         { step: "04", title: "Revisar", desc: "Variaciones, acuerdos, cierre." } 
       ],
       capabilities: [
-        { title: "Comercial", items: "Pace, forecast, mix de venta, canales." }, 
-        { title: "Finanzas", items: "Presupuesto, real, variación, acción." }, 
-        { title: "Gestión", items: "Estándares, costos, productividad, servicio." }, 
-        { title: "Activo", items: "Mantenimiento, disponibilidad, energía." }, 
-        { title: "Personas", items: "Selección, capacitación, desarrollo." }, 
-        { title: "Experiencia", items: "Comentarios, indicadores, seguimiento." } 
+        { 
+          title: "Inteligencia comercial e ingresos", 
+          items: "Cliente, momento, precio, canal, ritmo de venta, forecast y mezcla rentable." 
+        },
+        { 
+          title: "Gestión financiera y control", 
+          items: "Ingresos, nómina, compras, inventarios, caja, riesgos y desviaciones." 
+        },
+        { 
+          title: "Operación, marca y experiencia", 
+          items: "Estándares, consistencia del servicio, comentarios y resolución de problemas." 
+        },
+        { 
+          title: "Talento y liderazgo operativo", 
+          items: "Desarrollo de gestores capaces de leer indicadores, decidir y hacerse responsables." 
+        },
+        { 
+          title: "Proveedores, tecnología y activo", 
+          items: "Aliados confiables, procesos más simples, disponibilidad y uso disciplinado de recursos." 
+        }
       ],
       visibility: {
         steps: ["Presupuesto", "Real", "Variación", "Acción"], 

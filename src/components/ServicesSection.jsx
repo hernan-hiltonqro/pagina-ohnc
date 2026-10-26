@@ -1,164 +1,252 @@
 import { useState } from 'react';
 import { FadeIn } from './FadeIn';
 
-const services = [
-  {
-    number: "01",
-    title: "Inteligencia comercial e ingresos",
-    philosophy: "Cliente, momento, precio, canal, ritmo de venta, forecast y mezcla rentable.",
-    img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80",
-    details: [
-      "Optimización dinámica de tarifas (Revenue Management).",
-      "Análisis continuo de mercado y set competitivo.",
-      "Gestión eficiente de canales de distribución y venta directa."
-    ]
-  },
-  {
-    number: "02",
-    title: "Gestión financiera y control",
-    philosophy: "Ingresos, nómina, compras, inventarios, caja, riesgos y desviaciones.",
-    img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
-    details: [
-      "Auditoría y protección del flujo de caja.",
-      "Control estricto de nómina y costos operativos.",
-      "Reporteo de desviaciones presupuestales en tiempo real."
-    ]
-  },
-  {
-    number: "03",
-    title: "Operación, marca y experiencia",
-    philosophy: "Estándares, consistencia del servicio, comentarios y resolución de problemas.",
-    img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80",
-    details: [
-      "Alineación total con los estándares de la marca hotelera.",
-      "Monitoreo de reputación online y encuestas de satisfacción.",
-      "Planes de acción inmediatos ante fricciones en el servicio."
-    ]
-  },
-  {
-    number: "04",
-    title: "Talento y liderazgo operativo",
-    philosophy: "Desarrollo de gestores capaces de leer indicadores, decidir y hacerse responsables.",
-    img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
-    details: [
-      "Capacitación continua para líderes de departamento.",
-      "Cultura orientada a la rendición de cuentas (Accountability).",
-      "Retención de talento clave mediante planes de crecimiento."
-    ]
-  },
-  {
-    number: "05",
-    title: "Proveedores, tecnología y activo",
-    philosophy: "Aliados confiables, procesos más simples, disponibilidad y uso disciplinado de recursos.",
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-    details: [
-      "Implementación de ecosistemas digitales (PMS, POS, BI).",
-      "Mantenimiento preventivo para la protección del inmueble.",
-      "Negociación a escala con proveedores estratégicos."
-    ]
-  }
-];
-
 export const ServicesSection = () => {
-  // Estado para controlar qué acordeón está abierto. null = todos cerrados.
-  const [openIndex, setOpenIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  const toggleAccordion = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+  // Acordeón validado (Sin cambios)
+  const servicios = [
+    {
+      id: "01",
+      title: "Inteligencia comercial e ingresos",
+      summary: "Cliente, momento, precio, canal, ritmo de venta, forecast y mezcla rentable.",
+      details: [
+        "Análisis del cliente y elección del momento adecuado para la venta.",
+        "Estrategia dinámica de precio y optimización de canales de distribución.",
+        "Monitoreo constante del ritmo de venta y proyecciones (forecast).",
+        "Construcción y gestión de una mezcla de venta altamente rentable."
+      ]
+    },
+    {
+      id: "02",
+      title: "Gestión financiera y control",
+      summary: "Ingresos, nómina, compras, inventarios, caja, riesgos y desviaciones.",
+      details: [
+        "Control estricto de ingresos y optimización del gasto en nómina.",
+        "Gestión eficiente de compras y control de inventarios.",
+        "Administración del flujo de caja y mitigación de riesgos financieros.",
+        "Detección, análisis y corrección oportuna de desviaciones frente al presupuesto."
+      ]
+    },
+    {
+      id: "03",
+      title: "Operación, marca y experiencia",
+      summary: "Estándares, consistencia del servicio, comentarios y resolución de problemas.",
+      details: [
+        "Auditoría y cumplimiento riguroso de los estándares de marca.",
+        "Aseguramiento de la consistencia del servicio en todas las áreas.",
+        "Gestión activa de comentarios, reseñas y reputación del hotel.",
+        "Resolución ágil y efectiva de problemas operativos para proteger la experiencia."
+      ]
+    },
+    {
+      id: "04",
+      title: "Talento y liderazgo operativo",
+      summary: "Desarrollo de gestores capaces de leer indicadores, decidir y hacerse responsables.",
+      details: [
+        "Formación integral y retención de talento clave para la hospitalidad.",
+        "Capacitación de equipos en la lectura e interpretación de indicadores del negocio.",
+        "Empoderamiento del personal para la toma de decisiones asertivas.",
+        "Fomento de una cultura operativa orientada a la responsabilidad y los resultados."
+      ]
+    },
+    {
+      id: "05",
+      title: "Proveedores, tecnología y activo",
+      summary: "Aliados confiables, procesos más simples, disponibilidad y uso disciplinado de recursos.",
+      details: [
+        "Selección y gestión de proveedores estratégicos como aliados confiables.",
+        "Implementación de herramientas tecnológicas para simplificar procesos internos.",
+        "Garantía de disponibilidad operativa y mantenimiento constante del activo.",
+        "Supervisión del uso disciplinado y eficiente de los recursos materiales y energéticos."
+      ]
+    }
+  ];
 
   return (
-    <section id="servicios" className="py-32 bg-[#e9e2d5] border-b border-zinc-300">
+    <div className="bg-[#edeae1] min-h-screen pt-40 pb-32">
       <div className="max-w-7xl mx-auto px-6">
         
-        <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-16 lg:gap-24 items-start">
+        {/* ==========================================
+            SECCIÓN 1: ACORDEÓN DE CAPACIDADES
+            ========================================== */}
+        <FadeIn className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
           
-          {/* Columna Izquierda (Fija) */}
-          <FadeIn className="lg:sticky lg:top-32">
+          <div className="lg:col-span-5 lg:sticky lg:top-40">
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-8 h-[1px] bg-[#8a7048]"></div>
-              <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-[#8a7048]">
-                Gestión integral, con sentido
+              <div className="w-8 h-[1px] bg-[#a27642]"></div>
+              <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#a27642]">
+                Gestión Integral, con Sentido
               </span>
             </div>
             
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif text-zinc-900 leading-[1.05] mb-8 tracking-tight">
-              Una sola <br/> agenda para <br/> cuidar el <br/> negocio.
-            </h2>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-serif text-[#0b172a] leading-[1.05] tracking-tight mb-8">
+              Una sola <br/>
+              <span className="italic text-[#5c6b7f] font-light">agenda para cuidar el negocio.</span>
+            </h1>
             
-            <p className="text-sm text-[#67706d] font-light leading-relaxed max-w-sm">
+            <p className="text-base text-[#5c6b7f] font-light leading-relaxed max-w-sm">
               Unimos las áreas que determinan cómo se siente el hotel, cómo opera y qué valor deja a sus propietarios.
             </p>
-          </FadeIn>
+          </div>
 
-          {/* Columna Derecha (Acordeón) */}
-          <FadeIn delay={0.2} className="border-t border-[#c7bdab]">
-            {services.map((srv, idx) => {
-              const isOpen = openIndex === idx;
-
+          <div className="lg:col-span-7 border-t border-zinc-300/60">
+            {servicios.map((servicio, idx) => {
+              const isOpen = activeIndex === idx;
               return (
-                <div key={idx} className="border-b border-[#c7bdab]">
-                  {/* Cabecera Clickable */}
+                <div key={servicio.id} className="border-b border-zinc-300/60">
                   <button 
-                    onClick={() => toggleAccordion(idx)}
-                    className="w-full flex items-start text-left py-8 sm:py-10 group focus:outline-none"
+                    onClick={() => setActiveIndex(isOpen ? -1 : idx)}
+                    className="w-full text-left py-8 flex items-start gap-6 group hover:bg-[#e4e0d4] transition-colors px-4 -mx-4 rounded-lg"
                   >
-                    {/* Número */}
-                    <span className="w-12 sm:w-16 shrink-0 font-serif italic text-lg sm:text-xl text-[#9e7947] pt-0.5">
-                      {srv.number}
+                    <span className="text-lg font-serif italic text-[#a27642] mt-1 shrink-0">
+                      {servicio.id}
                     </span>
-                    
-                    {/* Textos */}
-                    <div className="flex-grow pr-6">
-                      <h3 className="text-xl sm:text-2xl font-serif text-zinc-900 mb-2 group-hover:text-[#9e7947] transition-colors">
-                        {srv.title}
+                    <div className="flex-grow pr-8">
+                      <h3 className="text-2xl font-serif text-[#0b172a] mb-2 group-hover:text-[#a27642] transition-colors">
+                        {servicio.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-[#68706e] font-light leading-relaxed">
-                        {srv.philosophy}
+                      <p className="text-sm text-[#5c6b7f] font-light leading-relaxed">
+                        {servicio.summary}
                       </p>
                     </div>
-
-                    {/* Ícono + / - */}
-                    <span className="shrink-0 text-2xl font-light text-[#9e7947] transition-transform duration-300">
+                    <span className="text-2xl font-light text-[#a27642] shrink-0 transition-transform duration-300">
                       {isOpen ? '−' : '+'}
                     </span>
                   </button>
 
-                  {/* Contenido Expandible (Imágenes y detalles) */}
-                  <div 
-                    className={`grid transition-all duration-500 ease-in-out overflow-hidden ${
-                      isOpen ? 'grid-rows-[1fr] opacity-100 mb-10' : 'grid-rows-[0fr] opacity-0'
-                    }`}
-                  >
-                    <div className="min-h-0 pl-12 sm:pl-16">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-center pt-2">
-                        {/* Detalles adicionales */}
-                        <ul className="space-y-3 text-xs text-zinc-600 font-light">
-                          {srv.details.map((detail, i) => (
-                            <li key={i} className="flex gap-3">
-                              <span className="text-[#9e7947] mt-0.5">▪</span> {detail}
-                            </li>
-                          ))}
-                        </ul>
-                        {/* Imagen referencial */}
-                        <div className="aspect-[4/3] w-full overflow-hidden">
-                          <img 
-                            src={srv.img} 
-                            alt={srv.title} 
-                            className="w-full h-full object-cover grayscale mix-blend-multiply hover:grayscale-0 hover:mix-blend-normal transition-all duration-700"
-                          />
-                        </div>
-                      </div>
+                  <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-[500px] opacity-100 mb-8' : 'max-h-0 opacity-0'}`}>
+                    <div className="pl-14 pr-4">
+                      <ul className="space-y-3">
+                        {servicio.details.map((detail, i) => (
+                          <li key={i} className="flex items-start gap-3 text-sm text-[#334155] font-light">
+                            <span className="w-1.5 h-1.5 bg-[#a27642] rounded-full mt-1.5 shrink-0 opacity-80"></span>
+                            <span className="leading-relaxed">{detail}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
-                  
                 </div>
               );
             })}
+          </div>
+        </FadeIn>
+
+
+        {/* ==========================================
+            SECCIÓN 2: INTEGRACIÓN DOCUMENTO ADMINISTRACIÓN
+            ========================================== */}
+        <div className="mt-32 pt-24 border-t border-zinc-300/60">
+          
+          <FadeIn className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#a27642] block mb-4">
+              Servicios Financieros y Soporte
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif text-[#0b172a] mb-6">
+              Rigor administrativo para la protección del activo
+            </h2>
+          </FadeIn>
+
+          {/* Matriz 3 Columnas (Diapositivas 1 y 2 fusionadas lógicamente) */}
+          <FadeIn className="grid grid-cols-1 md:grid-cols-3 gap-px bg-zinc-300/60 border border-zinc-300/60 mb-16">
+            
+            {/* INGRESOS */}
+            <div className="bg-[#edeae1] p-10 hover:bg-white transition-colors">
+              <h3 className="text-2xl font-serif text-[#0b172a] mb-6 flex items-center gap-3">
+                 <span className="w-2 h-2 bg-[#a27642] rounded-full"></span> Ingresos
+              </h3>
+              <ul className="space-y-4 text-sm text-[#5c6b7f] font-light">
+                 <li><strong className="text-[#0b172a] font-medium block mb-1">Flujo de Caja (Cash Flow)</strong> Considerado el capital de trabajo vital del hotel.</li>
+                 <li><strong className="text-[#0b172a] font-medium block mb-1">Equilibrio Operativo</strong> Sincronización precisa entre entradas y salidas de recurso.</li>
+                 <li><strong className="text-[#0b172a] font-medium block mb-1">Efectividad</strong> Administración proactiva y centralizada del ingreso.</li>
+              </ul>
+            </div>
+
+            {/* EGRESOS */}
+            <div className="bg-[#edeae1] p-10 hover:bg-white transition-colors">
+              <h3 className="text-2xl font-serif text-[#0b172a] mb-6 flex items-center gap-3">
+                 <span className="w-2 h-2 bg-[#a27642] rounded-full"></span> Egresos
+              </h3>
+              <ul className="space-y-4 text-sm text-[#5c6b7f] font-light">
+                 <li><strong className="text-[#0b172a] font-medium block mb-1">Control Riguroso</strong> Monitoreo de costos fijos y variables apoyados en APP de forecast.</li>
+                 <li><strong className="text-[#0b172a] font-medium block mb-1">Presupuesto vs Forecast</strong> Supervisión de gastos frente a la proyección real.</li>
+                 <li><strong className="text-[#0b172a] font-medium block mb-1">Tesorería Confiable</strong> Manejo transparente mediante firmas mancomunadas asignadas por la operadora.</li>
+              </ul>
+            </div>
+
+            {/* FINANZAS */}
+            <div className="bg-[#edeae1] p-10 hover:bg-white transition-colors">
+              <h3 className="text-2xl font-serif text-[#0b172a] mb-6 flex items-center gap-3">
+                 <span className="w-2 h-2 bg-[#a27642] rounded-full"></span> Finanzas
+              </h3>
+              <ul className="space-y-4 text-sm text-[#5c6b7f] font-light">
+                 <li><strong className="text-[#0b172a] font-medium block mb-1">Maximización de Activos</strong> Enfoque en rentabilidad sostenible a corto y largo plazo.</li>
+                 <li><strong className="text-[#0b172a] font-medium block mb-1">Cumplimiento Normativo</strong> Ejecución estricta de las obligaciones fiscales.</li>
+                 <li><strong className="text-[#0b172a] font-medium block mb-1">Propuesta de Valor</strong> Alineación total con el cliente interno y externo.</li>
+              </ul>
+            </div>
+          </FadeIn>
+
+          {/* Ciclo Financiero y Fiscal (Diapositiva 3 adaptada a web) */}
+          <FadeIn delay={0.2} className="bg-[#0b172a] text-white p-10 sm:p-16 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#a27642] opacity-5 blur-3xl rounded-full pointer-events-none"></div>
+            
+            <h3 className="text-center text-[10px] uppercase tracking-[0.3em] text-[#a27642] font-bold mb-12">
+              Ciclo Financiero y Fiscal
+            </h3>
+
+            <div className="flex flex-col md:flex-row items-stretch justify-center gap-8 relative z-10">
+              
+              {/* Lado Derecho del diagrama original (Operación) */}
+              <div className="flex-1 bg-white/5 border border-white/10 p-8 rounded-sm">
+                <h4 className="text-lg font-serif mb-6 text-[#a27642]">Operación y Control Continuo</h4>
+                <ul className="space-y-4 text-sm text-zinc-300 font-light">
+                  <li className="flex gap-3">
+                    <span className="text-[#a27642] mt-0.5">*</span>
+                    <span>Mantener información diaria de ingresos en APP.</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-[#a27642] mt-0.5">*</span>
+                    <span>Bases contables para la determinación de impuestos y/o estrategia fiscal del propietario o tercero.</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-[#a27642] mt-0.5">*</span>
+                    <span>Control interno que garantice efectividad en cada proceso en el hotel.</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Conector Cíclico Visual (Flechas) */}
+              <div className="flex md:flex-col items-center justify-center gap-2 text-[#a27642] opacity-50 py-4 md:py-0">
+                <svg className="w-6 h-6 rotate-90 md:rotate-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+                <svg className="w-6 h-6 -rotate-90 md:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </div>
+
+              {/* Lado Izquierdo del diagrama original (Resultados) */}
+              <div className="flex-1 bg-white/5 border border-white/10 p-8 rounded-sm">
+                <h4 className="text-lg font-serif mb-6 text-[#a27642]">Resultados y Rentabilidad</h4>
+                <ul className="space-y-4 text-sm text-zinc-300 font-light">
+                  <li className="flex gap-3">
+                    <span className="text-[#a27642] mt-0.5">*</span>
+                    <span>Entrega de estados financieros dentro de los <strong>10 días posteriores al cierre de mes.</strong></span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-[#a27642] mt-0.5">*</span>
+                    <span>Rentabilidad de acuerdo a estrategias de negocio establecidas.</span>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
           </FadeIn>
 
         </div>
       </div>
-    </section>
+    </div>
   );
 };
