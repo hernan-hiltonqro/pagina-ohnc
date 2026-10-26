@@ -6,7 +6,6 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 
 // Secciones
-import { Hero } from './components/Hero';
 import { HomeFeatures } from './components/HomeFeatures'; 
 import { AboutSection } from './components/AboutSection';
 import { TeamSection } from './components/TeamSection';
@@ -15,7 +14,7 @@ import { ExperienceSection } from './components/ExperienceSection';
 import { PortfolioSection } from './components/PortfolioSection';
 import { InvestorsSection } from './components/InvestorsSection';
 import { ContactSection } from './components/ContactSection';
-import { LegacySection } from './components/LegacySection'; // 1. Nuevo import
+import { LegacySection } from './components/LegacySection';
 
 export default function App() {
   return (
@@ -25,9 +24,11 @@ export default function App() {
         <Navbar />
         <main className="flex-grow pt-20"> 
           <Routes>
-            <Route path="/" element={<><Hero /><HomeFeatures /></>} />
+            {/* Ruta principal corregida: Solo llama a HomeFeatures */}
+            <Route path="/" element={<HomeFeatures />} />
+            
             <Route path="/nosotros" element={<><AboutSection /><TeamSection /></>} />
-            <Route path="/legado" element={<LegacySection />} /> {/* 2. Nueva Ruta */}
+            <Route path="/legado" element={<LegacySection />} />
             <Route path="/servicios" element={<ServicesSection />} />
             <Route path="/portafolio" element={<PortfolioSection />} />
             <Route path="/inversionistas" element={<InvestorsSection />} />

@@ -3,17 +3,28 @@ import { Link } from 'react-router-dom';
 
 export const InvestorsSection = () => {
   const afiliacion = [
-    "Definición del modelo (propuesta económica y evaluación legal).",
-    "Presentación del Contrato de Administración de Operación Hotelera.",
-    "Firma de contratos.",
-    "Implementación de recursos tecnológicos (Intranet, encuestas).",
-    "Inicio formal del proceso de operadora."
+    {
+      title: "Diagnóstico",
+      desc: "Activo, operación, marca, mercado, situación y objetivos del propietario."
+    },
+    {
+      title: "Propuesta",
+      desc: "Definición del modelo (propuesta económica y evaluación legal)."
+    },
+    {
+      title: "Acuerdo",
+      desc: "Presentación del Contrato de Administración de Operación Hotelera y firma de contratos."
+    },
+    {
+      title: "Arranque",
+      desc: "Implementación de recursos tecnológicos (Intranet, encuestas) e inicio formal de la gestión."
+    }
   ];
 
   const honorarios = [
-    { label: "Contrato de Operación", value: "5 años", isMain: true },
-    { label: "Regalías operadora s/ Ingresos Habitaciones", value: "5%", isMain: true },
-    { label: "Regalías operadora s/ GOP obtenido", value: "5%", isMain: true },
+    { label: "Contrato de Gestión", value: "5 años", isMain: true },
+    { label: "Honorarios base s/ Ingresos Habitaciones", value: "5%", isMain: true },
+    { label: "Honorarios por éxito s/ GOP obtenido", value: "5%", isMain: true },
     { label: "Excedente de GOP vs Presupuesto", value: "10% adicional", isMain: true },
     { label: "Regalía de marca, MKT y Comisiones", value: "Cuenta del propietario", isMain: false },
     { label: "Sistemas Back, POS y Nómina", value: "Contratación vía TCA", isMain: false }
@@ -31,10 +42,7 @@ export const InvestorsSection = () => {
         />
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
           <FadeIn>
-            <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-400 block mb-4">
-              Crecimiento y Rentabilidad
-            </span>
-            <h1 className="text-5xl sm:text-7xl font-serif text-white tracking-tight">
+            <h1 className="text-5xl sm:text-7xl font-serif text-white tracking-tight mt-6">
               Expansión
             </h1>
           </FadeIn>
@@ -61,10 +69,10 @@ export const InvestorsSection = () => {
               </h2>
               
               <p className="text-base sm:text-lg text-[#334155] font-light leading-relaxed mb-10">
-                Protegemos su patrimonio con disciplina operativa y transparencia total. Nuestro modelo de gestión está diseñado para maximizar la rentabilidad de su activo hotelero, respaldado por un ecosistema digital avanzado y un equipo de expertos comprometidos con el resultado.
+                Así se suma un hotel: el proceso para comenzar y las condiciones de la relación.
               </p>
 
-              <Link to="/contacto" className="inline-block bg-[#0b172a] px-10 py-5 text-xs uppercase tracking-[0.2em] font-medium text-white hover:bg-[#5c6b7f] transition-all duration-300 shadow-lg">
+              <Link to="/contacto" className="inline-block bg-[#0b172a] px-10 py-5 text-xs uppercase tracking-[0.2em] font-medium text-white hover:bg-[#a27642] transition-all duration-300 shadow-lg">
                 Contactar a Expansión
               </Link>
             </FadeIn>
@@ -72,28 +80,30 @@ export const InvestorsSection = () => {
             {/* Columna Derecha: Información Detallada */}
             <div className="lg:col-span-7 space-y-24">
               
-              {/* Bloque: Proceso de Afiliación */}
+              {/* Bloque: Proceso de Afiliación (4 Pasos) */}
               <FadeIn>
                 <h3 className="text-3xl font-serif text-[#0b172a] mb-10">
                   Proceso de Afiliación
                 </h3>
                 <div className="border-t border-zinc-200">
                   {afiliacion.map((paso, idx) => (
-                    <div key={idx} className="flex items-start gap-6 sm:gap-8 py-8 border-b border-zinc-200 group">
+                    <div key={idx} className="flex flex-col sm:flex-row gap-6 sm:gap-8 py-8 border-b border-zinc-200 group">
                       <span className="text-xl sm:text-2xl font-serif italic text-[#a27642] shrink-0 mt-0.5">
                         0{idx + 1}.
                       </span>
-                      <p className="text-sm sm:text-base text-[#5c6b7f] font-light leading-relaxed">
-                        {paso}
-                      </p>
+                      <div>
+                        <h4 className="text-lg font-serif text-[#0b172a] mb-2">{paso.title}</h4>
+                        <p className="text-sm sm:text-base text-[#5c6b7f] font-light leading-relaxed">
+                          {paso.desc}
+                        </p>
+                      </div>
                     </div>
                   ))}
                 </div>
               </FadeIn>
 
-              {/* Bloque: Estructura de Honorarios (Fondo corporativo oscuro) */}
+              {/* Bloque: Estructura de Honorarios */}
               <FadeIn delay={0.2} className="bg-[#0b172a] p-10 sm:p-14 text-white shadow-xl relative overflow-hidden">
-                {/* Acento decorativo sutil */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#a27642] opacity-5 blur-3xl rounded-full pointer-events-none"></div>
 
                 <h3 className="text-3xl font-serif mb-10 text-white relative z-10">

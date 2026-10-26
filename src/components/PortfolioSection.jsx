@@ -1,8 +1,28 @@
 import { FadeIn } from './FadeIn';
-import { siteData } from '../data/content';
 
 export const PortfolioSection = () => {
-  const { portfolio } = siteData;
+  const portfolio = [
+    {
+      type: "Full Service", // <--- Aquí quedó corregido a solo Full Service
+      name: "Hilton Querétaro",
+      desc: "Activo operado bajo rigurosos estándares internacionales, diseñado para maximizar los ingresos del propietario a través de una oferta integral que atiende tanto al huésped de placer como a grupos corporativos.",
+      img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=80", 
+      features: [
+        "Eventos y Convenciones",
+        "Alta Gastronomía"
+      ]
+    },
+    {
+      type: "Focused Service", // <--- Aquí quedó como Focused Service
+      name: "Hampton Juriquilla",
+      desc: "Propiedad optimizada para mantener altos niveles de ocupación con una estructura de costos eficiente, garantizando rentabilidad sin comprometer la promesa al huésped.",
+      img: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1600&q=80", 
+      features: [
+        "Eficiencia Gestionable",
+        "Viajeros de Negocios"
+      ]
+    }
+  ];
 
   return (
     <section className="py-32 bg-white border-b border-zinc-200 overflow-hidden">
@@ -10,13 +30,6 @@ export const PortfolioSection = () => {
       {/* Cabecera Editorial */}
       <div className="max-w-7xl mx-auto px-6 mb-32 text-center">
         <FadeIn>
-          <div className="flex items-center justify-center gap-4 mb-8">
-            <div className="w-6 h-[1px] bg-[#a27642]"></div>
-            <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#a27642]">
-              Propiedades
-            </span>
-            <div className="w-6 h-[1px] bg-[#a27642]"></div>
-          </div>
           <h2 className="font-serif tracking-tight flex flex-col items-center">
             <span className="text-5xl sm:text-6xl md:text-7xl leading-[1] text-[#0b172a] block">
               Activos

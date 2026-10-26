@@ -1,12 +1,14 @@
 import { FadeIn } from './FadeIn';
 import { siteData } from '../data/content';
 import { Link } from 'react-router-dom';
+import { Hero } from './Hero';
 
 export const HomeFeatures = () => {
   const { intro, snapshot, model } = siteData.homeFeatures;
 
   return (
     <div className="bg-white">
+      <Hero />
       
       {/* 1. Introducción y Enfoque con Imagen Vertical */}
       <section className="py-32 border-b border-zinc-200">
