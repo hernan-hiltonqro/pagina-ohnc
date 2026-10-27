@@ -1,128 +1,305 @@
-import { useState } from 'react';
-import { FadeIn } from './FadeIn';
+import { useId } from 'react';
 
-// Datos con los títulos completos para mostrarlos en el diagrama
-const centerNode = { 
-  id: 'center', 
-  type: 'Propósito Central', 
-  title: 'Owner Centricity', 
-  desc: 'Creamos valor para el propietario hoy y a largo plazo.' 
+/*
+  Owner Centricity — diagrama de Euler, estático y accesible.
+  VERSIÓN REFINADA: Escala reducida para mayor espacio en blanco y menor peso visual.
+*/
+
+const COLORS = {
+  bg: '#09090b',
+  ink: '#f4f4f5',
+  muted: '#a1a1aa',
+  gold: '#e8d5a5',
+  line: 'rgba(232, 213, 165, 0.3)',
 };
 
-const pilares = [
-  { id: 'p1', type: 'Pilar de Valor', label: 'Legado', title: 'Legado', desc: 'Preservamos la visión y la esencia, construyendo valor sostenible para las futuras generaciones.', pos: { left: '50%', top: '23%' } },
-  { id: 'p2', type: 'Pilar de Valor', label: 'Cuidado del Activo', title: 'Cuidado del Activo', desc: 'Protegemos y maximizamos el valor del activo con una gestión eficiente, responsable y orientada al largo plazo.', pos: { left: '77%', top: '50%' } },
-  { id: 'p3', type: 'Pilar de Valor', label: 'Cuidado de los Clientes', title: 'Cuidado de los Clientes', desc: 'Brindamos experiencias memorables que generan satisfacción, lealtad y valor sostenible para el negocio.', pos: { left: '50%', top: '77%' } },
-  { id: 'p4', type: 'Pilar de Valor', label: 'Talento', title: 'Talento', desc: 'Desarrollamos profesionales que gestionan, no solo ejecutan, impulsando una cultura de aprendizaje y crecimiento continuo.', pos: { left: '23%', top: '50%' } },
+const purpose = 'Creamos valor para el propietario hoy y a largo plazo.';
+
+const stages = [
+  { title: 'Entendemos', desc: 'El negocio y su entorno.' },
+  { title: 'Visualizamos', desc: 'El potencial y la estrategia.' },
+  { title: 'Ejecutamos', desc: 'La operación y los resultados.' },
+  { title: 'Disciplina y armonía', desc: 'Gestión financiera, equilibrio y sostenibilidad.' },
+  { title: 'Simplificamos procesos', desc: 'Con tecnología e innovación.' },
 ];
 
-const proceso = [
-  { id: 'pr1', type: 'Etapa 01', label: '01. Entendemos', title: '01. Entendemos', desc: 'El negocio y su entorno.', pos: { left: '50%', top: '0%' } },
-  { id: 'pr2', type: 'Etapa 02', label: '02. Visualizamos', title: '02. Visualizamos', desc: 'El potencial y la estrategia.', pos: { left: '97.5%', top: '34.5%' } },
-  { id: 'pr3', type: 'Etapa 03', label: '03. Ejecutamos', title: '03. Ejecutamos', desc: 'La operación y los resultados.', pos: { left: '79.3%', top: '90.5%' } },
-  { id: 'pr4', type: 'Etapa 04', label: '04. Disciplina y Armonía', title: '04. Disciplina y Armonía', desc: 'Gestión financiera, equilibrio y sostenibilidad.', pos: { left: '20.7%', top: '90.5%' } },
-  { id: 'pr5', type: 'Etapa 05', label: '05. Simplificamos Procesos', title: '05. Simplificamos Procesos', desc: 'Con tecnología e innovación.', pos: { left: '2.5%', top: '34.5%' } },
+/* Escala reducida para dar más aire al diagrama */
+const D = 85; // Separación del centro (antes 100)
+const RP = 145; // Radio de los círculos (antes 175)
+const CX = 600;
+const CY = 400;
+const W = 1200;
+const H = 790;
+const ORBIT = 275; // Radio de la órbita (antes 305)
+
+const pillars = [
+  {
+    title: 'Legado',
+    desc: 'Preservamos la visión y la esencia, construyendo valor sostenible para las futuras generaciones.',
+    dx: 0,
+    dy: -D,
+    label: { x: CX, y: 225, lines: ['Legado'] },
+  },
+  {
+    title: 'Cuidado del activo',
+    desc: 'Protegemos y maximizamos el valor del activo con una gestión eficiente, responsable y orientada al largo plazo.',
+    dx: D,
+    dy: 0,
+    label: { x: 775, y: CY, lines: ['Cuidado', 'del activo'] },
+  },
+  {
+    title: 'Cuidado de los clientes',
+    desc: 'Brindamos experiencias memorables que generan satisfacción, lealtad y valor sostenible para el negocio.',
+    dx: 0,
+    dy: D,
+    label: { x: CX, y: 575, lines: ['Cuidado de los', 'clientes'] },
+  },
+  {
+    title: 'Talento',
+    desc: 'Desarrollamos profesionales que gestionan, no solo ejecutan, impulsando una cultura de aprendizaje y crecimiento continuo.',
+    dx: -D,
+    dy: 0,
+    label: { x: 425, y: CY, lines: ['Talento'] },
+  },
 ];
 
-export const OwnerCentricity = () => {
-  const [activeNode, setActiveNode] = useState(centerNode);
+// Posición de los puntos sobre la órbita
+const stagePos = (i) => {
+  const a = (i * 72 * Math.PI) / 180;
+  return { x: CX + ORBIT * Math.sin(a), y: CY - ORBIT * Math.cos(a) };
+};
+
+// Rótulos HTML de las etapas (ajustados al nuevo tamaño)
+const labelStyle = (i) => {
+  const { x, y } = stagePos(i);
+  if (i === 0) return { left: x - 160, width: 320, bottom: H - (y - 25), textAlign: 'center' };
+  if (i === 1) return { left: x + 35, width: W - (x + 35), top: y - 12 };
+  if (i === 4) return { left: 0, width: x - 35, top: y - 12, textAlign: 'right' };
+  return { left: x - 130, width: 260, top: y + 25, textAlign: 'center' };
+};
+
+/* ---------- Diagrama ---------- */
+const Figure = ({ compact = false }) => {
+  const haloId = `oc-halo-${useId().replace(/:/g, '')}`;
+  const dotR = compact ? 26 : 15; // Reducidos
+  const dotFont = compact ? 28 : 16; // Reducidos
 
   return (
-    <section className="py-32 bg-white text-zinc-900 border-y border-zinc-200 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        
-        <FadeIn className="text-center max-w-3xl mx-auto mb-20 lg:mb-32">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-[#0f2035] block mb-4 font-bold">
-            Filosofía Operativa
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-serif text-[#0f2035] mb-6">
-            El Ecosistema del Valor
-          </h2>
-          <p className="text-sm text-zinc-500 font-light leading-relaxed">
-            Interactúa con el diagrama para explorar los ejes y etapas de nuestra gestión.
-          </p>
-        </FadeIn>
+    <svg
+      viewBox={compact ? '250 60 700 680' : `0 0 ${W} ${H}`}
+      width={compact ? undefined : W}
+      height={compact ? undefined : H}
+      className={compact ? 'relative block h-auto w-full' : 'relative block'}
+      aria-hidden="true"
+    >
+      <defs>
+        <radialGradient id={haloId}>
+          <stop offset="0" stopColor={COLORS.gold} stopOpacity="0.3" />
+          <stop offset="1" stopColor={COLORS.gold} stopOpacity="0" />
+        </radialGradient>
+      </defs>
 
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center justify-center">
-          
-          {/* Diagrama Circular (Lado Izquierdo) */}
-          <FadeIn delay={0.2} className="relative w-[340px] h-[340px] sm:w-[480px] sm:h-[480px] flex-shrink-0">
-            
-            {/* Guías Orbitales */}
-            <div className="absolute inset-0 m-auto w-full h-full border-[1.5px] border-dashed border-[#c1ccdb] rounded-full" />
-            <div className="absolute inset-0 m-auto w-[54%] h-[54%] border-[1.5px] border-dashed border-[#c1ccdb] rounded-full" />
+      {/* Órbitas decorativas más pequeñas */}
+      <ellipse cx={CX} cy={CY} rx="300" ry="180" transform={`rotate(-28 ${CX} ${CY})`} fill="none" stroke="rgba(232,213,165,0.15)" />
+      <ellipse cx={CX} cy={CY} rx="300" ry="180" transform={`rotate(28 ${CX} ${CY})`} fill="none" stroke="rgba(232,213,165,0.15)" />
 
-            {/* Nodo Central */}
-            <button
-              onClick={() => setActiveNode(centerNode)}
-              className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 sm:w-40 sm:h-40 rounded-full z-30 flex flex-col items-center justify-center transition-all duration-500 focus:outline-none ${
-                activeNode.id === 'center' 
-                  ? 'bg-[#0f2035] border-4 border-[#0f2035] shadow-[0_0_30px_rgba(15,32,53,0.3)] scale-110' 
-                  : 'bg-[#0f2035] border-4 border-white hover:scale-105'
-              }`}
-            >
-              <span className="font-sans text-[11px] sm:text-sm font-bold tracking-[0.1em] text-center text-white px-2">
-                OWNER<br/>CENTRICITY
-              </span>
-            </button>
+      {/* Órbita de las etapas */}
+      <circle cx={CX} cy={CY} r={ORBIT} fill="none" stroke="rgba(232,213,165,0.3)" strokeDasharray="3 8" />
 
-            {/* Nodos Interiores (4 Pilares) */}
-            {pilares.map((node) => (
-              <button
-                key={node.id}
-                onClick={() => setActiveNode(node)}
-                style={{ left: node.pos.left, top: node.pos.top }}
-                className={`absolute -translate-x-1/2 -translate-y-1/2 w-20 h-20 sm:w-28 sm:h-28 rounded-full z-20 flex items-center justify-center p-2 transition-all duration-300 focus:outline-none ${
-                  activeNode.id === node.id 
-                    ? 'bg-[#0f2035] text-white border-[#0f2035] shadow-lg scale-110' 
-                    : 'bg-white border-2 border-[#c1ccdb] text-[#0f2035] hover:border-[#0f2035]'
-                }`}
+      {/* Pilares */}
+      {pillars.map((p) => (
+        <circle
+          key={p.title}
+          cx={CX + p.dx}
+          cy={CY + p.dy}
+          r={RP}
+          fill="rgba(232,213,165,0.03)"
+          stroke="rgba(232,213,165,0.5)"
+          strokeWidth="1"
+        />
+      ))}
+
+      {/* Textos internos */}
+      {!compact && (
+        <g>
+          {pillars.map((p) =>
+            p.label.lines.map((line, k) => (
+              <text
+                key={`${p.title}-${k}`}
+                x={p.label.x}
+                y={p.label.y + (k - (p.label.lines.length - 1) / 2) * 20}
+                dy="0.35em"
+                textAnchor="middle"
+                fontSize="16"
+                className="font-serif tracking-wide"
+                style={{ fill: 'var(--oc-ink)' }}
               >
-                <span className="font-serif text-[10px] sm:text-xs font-bold uppercase tracking-wider text-center leading-tight">
-                  {node.label}
-                </span>
-              </button>
-            ))}
-
-            {/* Nodos Exteriores (5 Etapas de Proceso) */}
-            {proceso.map((node) => (
-              <button
-                key={node.id}
-                onClick={() => setActiveNode(node)}
-                style={{ left: node.pos.left, top: node.pos.top }}
-                className={`absolute -translate-x-1/2 -translate-y-1/2 w-24 h-24 sm:w-32 sm:h-32 rounded-full z-10 flex items-center justify-center p-3 transition-all duration-300 focus:outline-none ${
-                  activeNode.id === node.id 
-                    ? 'bg-[#0f2035] text-white shadow-lg scale-110' 
-                    : 'bg-[#d8e1eb] border border-[#d8e1eb] text-[#0f2035] hover:bg-[#0f2035] hover:text-white'
-                }`}
-              >
-                <span className="font-sans text-[9px] sm:text-[11px] font-bold uppercase tracking-widest text-center leading-tight">
-                  {node.label}
-                </span>
-              </button>
-            ))}
-          </FadeIn>
-
-          {/* Panel de Información Dinámico (Lado Derecho) */}
-          <div className="w-full lg:w-[45%] min-h-[250px] flex flex-col justify-center text-center lg:text-left mt-8 lg:mt-0">
-            <div 
-              key={activeNode.id} 
-              className="animate-[fadeIn_0.4s_ease-out_forwards]"
+                {line}
+              </text>
+            ))
+          )}
+          {['Owner', 'Centricity'].map((line, k) => (
+            <text
+              key={line}
+              x={CX}
+              y={CY + (k - 0.5) * 24}
+              dy="0.35em"
+              textAnchor="middle"
+              fontSize="20"
+              className="font-serif"
+              style={{ fill: 'var(--oc-gold)' }}
             >
-              <span className="text-[11px] uppercase tracking-[0.3em] text-[#8a9bb3] block mb-4 font-bold">
-                {activeNode.type}
-              </span>
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#0f2035] mb-6 leading-tight">
-                {activeNode.title}
-              </h3>
-              <p className="text-base sm:text-lg text-zinc-600 font-light leading-relaxed max-w-lg mx-auto lg:mx-0">
-                {activeNode.desc}
-              </p>
-            </div>
-          </div>
+              {line}
+            </text>
+          ))}
+        </g>
+      )}
 
-        </div>
-      </div>
-    </section>
+      {/* Puntos y números */}
+      {stages.map((s, i) => {
+        const { x, y } = stagePos(i);
+        return (
+          <g key={s.title}>
+            <circle cx={x} cy={y} r={dotR * 2.2} fill={`url(#${haloId})`} />
+            <circle cx={x} cy={y} r={dotR} style={{ fill: 'var(--oc-gold)' }} />
+            <text
+              x={x}
+              y={y}
+              dy="0.35em"
+              textAnchor="middle"
+              fontSize={dotFont}
+              fontWeight="700"
+              style={{ fill: 'var(--oc-bg)' }}
+            >
+              {i + 1}
+            </text>
+          </g>
+        );
+      })}
+    </svg>
   );
 };
+
+/* ---------- Fondo de Anillos ---------- */
+const fade = 'linear-gradient(180deg, transparent, #000 22%, #000 78%, transparent)';
+
+const Rings = ({ extend, cy, radii }) => (
+  <svg
+    aria-hidden="true"
+    className="pointer-events-none absolute left-1/2 -z-10 -translate-x-1/2 w-[100vw]"
+    style={{
+      top: -extend,
+      height: `calc(100% + ${extend * 2}px)`,
+      maskImage: fade,
+      WebkitMaskImage: fade,
+    }}
+  >
+    {radii.map((r, i) => (
+      <circle
+        key={r}
+        cx="50%"
+        cy={cy}
+        r={r}
+        fill="none"
+        stroke={`rgba(232, 213, 165, ${(0.07 - i * 0.012).toFixed(3)})`}
+      />
+    ))}
+  </svg>
+);
+
+export const OwnerCentricity = () => (
+  <section
+    aria-labelledby="oc-title"
+    className="relative isolate overflow-hidden border-y border-zinc-800 py-24 text-[color:var(--oc-ink)] sm:py-32 w-full bg-[#09090b]"
+    style={{
+      '--oc-bg': COLORS.bg,
+      '--oc-ink': COLORS.ink,
+      '--oc-muted': COLORS.muted,
+      '--oc-gold': COLORS.gold,
+      '--oc-line': COLORS.line,
+    }}
+  >
+    {/* Fondo expansivo */}
+    <div className="absolute inset-0 -z-20 w-full h-full bg-[radial-gradient(circle_at_center,rgba(162,118,66,0.06)_0%,transparent_80%)]"></div>
+
+    <div className="mx-auto max-w-7xl px-6 relative z-10">
+      <header className="mx-auto mb-16 max-w-3xl text-center xl:mb-12">
+        <p className="mb-4 text-xs font-medium text-[color:var(--oc-gold)] tracking-[0.2em] uppercase">Filosofía operativa</p>
+        <h2 id="oc-title" className="font-serif text-3xl sm:text-4xl leading-tight text-zinc-50">
+          El ecosistema del valor
+        </h2>
+        <div
+          aria-hidden="true"
+          className="mx-auto mt-6 h-px w-40"
+          style={{ background: 'linear-gradient(90deg, transparent, var(--oc-gold), transparent)' }}
+        />
+        <p className="mt-8 font-serif text-xl sm:text-2xl italic text-[color:var(--oc-gold)]">{purpose}</p>
+        <p className="mt-4 text-base leading-relaxed text-[color:var(--oc-muted)]">
+          Cinco etapas guían nuestra gestión, y cuatro pilares se unen en el centro, en torno al propietario.
+        </p>
+      </header>
+
+      {/* ===== ≥ 1280 px: Diagrama ===== */}
+      <div className="relative mx-auto hidden xl:block" style={{ width: W, height: H }}>
+        <Rings extend={400} cy={CY + 400} radii={[340, 430, 540, 670, 820, 990]} />
+        <Figure />
+        <h3 className="sr-only">Etapas de gestión</h3>
+        <ol role="list" aria-label="Etapas de gestión">
+          {stages.map((s, i) => (
+            <li key={s.title} className="absolute" style={labelStyle(i)}>
+              <h4 className="font-serif text-xl leading-tight text-zinc-50 mb-1">
+                <span className="sr-only">Etapa {i + 1}: </span>
+                {s.title}
+              </h4>
+              <p className="text-sm leading-snug text-[color:var(--oc-muted)]">{s.desc}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      {/* ===== < 1280 px: Versión Móvil/Compacta ===== */}
+      <div className="xl:hidden">
+        <div className="relative mx-auto w-full max-w-[420px]">
+          <Rings extend={240} cy="50%" radii={[250, 340, 450, 580, 730, 900]} />
+          <Figure compact />
+        </div>
+
+        <h3 className="mt-16 text-center font-serif text-2xl text-zinc-50 sm:text-3xl">
+          Cinco etapas de gestión
+        </h3>
+        <ol role="list" className="mx-auto mt-10 grid max-w-4xl gap-8 md:grid-cols-2 md:gap-x-12">
+          {stages.map((s, i) => (
+            <li key={s.title} className="flex gap-4">
+              <span
+                aria-hidden="true"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[color:var(--oc-gold)] text-lg font-bold text-[color:var(--oc-bg)]"
+              >
+                {i + 1}
+              </span>
+              <div>
+                <h4 className="font-serif text-xl leading-tight text-zinc-50 mb-1">
+                  <span className="sr-only">Etapa {i + 1}: </span>
+                  {s.title}
+                </h4>
+                <p className="text-sm leading-snug text-[color:var(--oc-muted)]">{s.desc}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      {/* ===== Pilares Inferiores ===== */}
+      <div className="mt-24 xl:mt-16 border-t border-zinc-800/60 pt-16">
+        <h3 className="text-center font-serif text-2xl sm:text-3xl text-zinc-50 mb-10">Cuatro pilares de valor</h3>
+        <ul role="list" className="grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
+          {pillars.map((p) => (
+            <li key={p.title} className="bg-white/5 border border-white/10 p-6 rounded-sm hover:bg-white/10 transition-colors">
+              <h4 className="font-serif text-xl leading-tight text-[color:var(--oc-gold)] mb-3">{p.title}</h4>
+              <p className="text-sm leading-relaxed text-[color:var(--oc-muted)]">{p.desc}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+);

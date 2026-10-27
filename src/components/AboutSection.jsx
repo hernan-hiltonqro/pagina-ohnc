@@ -3,32 +3,49 @@ import { OwnerCentricity } from './OwnerCentricity';
 
 export const AboutSection = () => {
   return (
-    <section id="nosotros" className="py-32 bg-white border-b border-zinc-200">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="nosotros" className="pt-32 bg-white">
+      
+      {/* Contenedor centralizado para la primera parte */}
+      <div className="max-w-7xl mx-auto px-6 mb-20">
         
-        {/* 1. ¿Quiénes Somos? (Apertura simplificada) */}
+        {/* 1. ¿Quiénes Somos? (Apertura con el nuevo texto integrado) */}
         <FadeIn className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+          
           <div className="lg:col-span-7">
             <span className="text-[10px] uppercase tracking-[0.3em] text-[#a27642] block mb-6 font-bold">
               Nuestra Filosofía
             </span>
-            <h2 className="text-4xl sm:text-5xl md:text-[3.5rem] font-serif text-[#0f2035] leading-[1.1] tracking-tight">
+            <h2 className="text-4xl sm:text-5xl md:text-[3.5rem] font-serif text-[#0f2035] leading-[1.1] tracking-tight mb-8">
               Somos una operadora hotelera especializada en la gestión estratégica e integral de activos hoteleros.
             </h2>
-          </div>
-          <div className="lg:col-span-5 lg:pt-14">
-            <p className="text-base sm:text-lg text-zinc-600 font-light leading-relaxed mb-12">
-              Transformamos información en decisiones de valor para construir rentabilidad sostenible.
+            <p className="text-xl text-[#a27642] font-serif italic">
+              Transformamos información en decisiones de valor.
             </p>
           </div>
+          
+          {/* Nueva información corporativa */}
+          <div className="lg:col-span-5 lg:pt-14 space-y-6">
+            <p className="text-sm sm:text-base text-zinc-600 font-light leading-relaxed">
+              <strong className="text-[#0b172a] font-medium">En GEOH</strong> ponemos a su alcance nuestro know-how, talento humano, herramientas y sistemas para la maximización del retorno de su inversión en gestión hotelera.
+            </p>
+            <p className="text-sm sm:text-base text-zinc-600 font-light leading-relaxed">
+              Nuestro equipo fuerte y consolidado logra la implementación de procesos eficientes y sistemas productivos que favorecen la operación cotidiana con altos niveles de calidad, contribuyendo a la rentabilidad de las propiedades que operamos y a la creación de experiencias memorables para los huéspedes, con estancias satisfactorias que fortalecen el desempeño del activo hotelero.
+            </p>
+          </div>
+
         </FadeIn>
 
-        {/* 2. Owner Centricity */}
-        <div className="mt-20">
-          <OwnerCentricity />
-        </div>
+      </div> {/* <-- CERRAMOS EL CONTENEDOR CENTRAL */}
 
-        {/* 3. Evolución (Línea de tiempo con texto actualizado) */}
+      {/* 2. Owner Centricity (Ancho completo) */}
+      <div className="w-full">
+        <OwnerCentricity />
+      </div>
+
+      {/* Volvemos a abrir el contenedor central para el resto de la página */}
+      <div className="max-w-7xl mx-auto px-6">
+
+        {/* 3. Evolución */}
         <section className="py-32 border-b border-zinc-200 bg-white overflow-hidden">
           <div className="max-w-7xl mx-auto">
             <FadeIn className="mb-20">
@@ -126,7 +143,7 @@ export const AboutSection = () => {
         </FadeIn>
 
         {/* 6. Fundamentos y Valores Consolidados */}
-        <FadeIn delay={0.6} className="mt-16 bg-[#0b172a] text-white p-12 lg:p-20 text-center">
+        <FadeIn delay={0.6} className="mt-16 bg-[#0b172a] text-white p-12 lg:p-20 text-center mb-32">
           <h4 className="text-[10px] uppercase tracking-[0.3em] text-[#a27642] mb-12 font-bold">
             Fundamentos de Ejecución
           </h4>
