@@ -20,8 +20,6 @@ const PILLARS = [
 export const Hero = () => {
   const sectionRef = useRef(null);
 
-  // Progreso del scroll sobre el hero (0 → 1) como variable CSS.
-  // No provoca re-renders: solo actualiza --geoh-p en el <section>.
   useEffect(() => {
     const el = sectionRef.current;
     if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -52,7 +50,6 @@ export const Hero = () => {
       ref={sectionRef}
       className="relative flex min-h-[calc(100vh-80px)] overflow-hidden border-b border-zinc-900 bg-[#0c0c0e]"
     >
-      {/* Luz cálida detrás del logo: se desplaza a otro ritmo que el resto */}
       <div
         className="pointer-events-none absolute right-0 top-1/2 -mt-[19rem] h-[38rem] w-[38rem] rounded-full opacity-[0.05] blur-3xl"
         style={{
@@ -64,7 +61,6 @@ export const Hero = () => {
       />
 
       <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 gap-14 px-6 pt-20 lg:grid-cols-12 lg:gap-10 lg:pt-0">
-        {/* Columna de texto: sube y se desvanece al hacer scroll */}
         <div
           className="flex flex-col justify-center lg:col-span-7 lg:py-24"
           style={{
@@ -99,7 +95,7 @@ export const Hero = () => {
           </FadeIn>
         </div>
 
-        {/* Logo: se dibuja al cargar y se hunde más lento que el scroll */}
+        {/* Contenedor del Logo Restaurado */}
         <div className="flex items-center justify-center lg:col-span-5 lg:justify-end">
           <div
             className="w-full max-w-[19rem] sm:max-w-[22rem] lg:max-w-[24rem]"
@@ -112,6 +108,7 @@ export const Hero = () => {
             <GeohLogo decorative className="block h-auto w-full" />
           </div>
         </div>
+
       </div>
     </section>
   );
