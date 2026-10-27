@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { FadeIn } from './FadeIn';
-import { GeohLogo } from './Geohlogo';
+import { GeohLogo } from './LogoGEOH';
 
 const PILLARS = [
   {
@@ -113,3 +113,5 @@ export const Hero = () => {
     </section>
   );
 };
+
+//prueba de comentario
