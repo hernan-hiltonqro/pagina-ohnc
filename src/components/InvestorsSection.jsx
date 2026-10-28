@@ -5,15 +5,15 @@ export const InvestorsSection = () => {
   const afiliacion = [
     {
       title: "Diagnóstico",
-      desc: "Activo, operación, marca, mercado, situación y objetivos del propietario."
+      desc: "Análisis del activo, operación, marca, mercado, situación y objetivos del propietario."
     },
     {
       title: "Propuesta",
-      desc: "Definición del modelo (propuesta económica y evaluación legal)."
+      desc: "Definición del modelo, propuesta económica y evaluación legal."
     },
     {
       title: "Acuerdo",
-      desc: "Presentación del Contrato de Administración de Operación Hotelera y firma de contratos."
+      desc: "Presentación y firma del Contrato de Administración de Operación Hotelera."
     },
     {
       title: "Arranque",
@@ -22,12 +22,11 @@ export const InvestorsSection = () => {
   ];
 
   const honorarios = [
-    { label: "Contrato de Gestión", value: "5 años", isMain: true },
-    { label: "Honorarios base s/ Ingresos Habitaciones", value: "5%", isMain: true },
-    { label: "Honorarios por éxito s/ GOP obtenido", value: "5%", isMain: true },
-    { label: "Excedente de GOP vs Presupuesto", value: "10% adicional", isMain: true },
-    { label: "Regalía de marca, MKT y Comisiones", value: "Cuenta del propietario", isMain: false },
-    { label: "Sistemas Back, POS y Nómina", value: "Contratación vía TCA", isMain: false }
+    { label: "Honorarios base (s/ Ingresos de Habitaciones)", value: "5%", isMain: true },
+    { label: "Honorarios por éxito (s/ GOP obtenido)", value: "5%", isMain: true },
+    { label: "Incentivo por excedente (GOP vs Presupuesto)", value: "10% sobre el monto excedente", isMain: true },
+    { label: "Regalías de marca, MKT y Comisiones", value: "A cuenta del propietario", isMain: false },
+    { label: "Sistemas Back, POS y Nómina", value: "Contratación vía TCA a cargo del propietario (Gestión operativa por GEOH)", isMain: false }
   ];
 
   return (
@@ -64,30 +63,27 @@ export const InvestorsSection = () => {
               </div>
               
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#0b172a] leading-[1.05] tracking-tight mb-6">
-                ¿Cómo ser parte <br/>
-                <span className="italic text-[#5c6b7f] font-light">de GEOH?</span>
+                Proceso de <br/>
+                <span className="italic text-[#5c6b7f] font-light">Afiliación.</span>
               </h2>
               
-              <p className="text-base sm:text-lg text-[#334155] font-light leading-relaxed mb-10">
-                Así se suma un hotel: el proceso para comenzar y las condiciones de la relación.
+              <p className="text-base sm:text-lg text-[#334155] font-light leading-relaxed mb-10 max-w-sm">
+                El camino estructurado para integrar su propiedad a nuestro ecosistema de gestión, garantizando transparencia técnica y jurídica.
               </p>
 
               <Link to="/contacto" className="inline-block bg-[#0b172a] px-10 py-5 text-xs uppercase tracking-[0.2em] font-medium text-white hover:bg-[#a27642] transition-all duration-300 shadow-lg">
-                Contactar a Expansión
-              </Link>
+  Solicitar diagnóstico
+</Link>
             </FadeIn>
 
             {/* Columna Derecha: Información Detallada */}
-            <div className="lg:col-span-7 space-y-24">
+            <div className="lg:col-span-7 space-y-20">
               
-              {/* Bloque: Proceso de Afiliación (4 Pasos) */}
+              {/* Bloque: Los 4 Pasos */}
               <FadeIn>
-                <h3 className="text-3xl font-serif text-[#0b172a] mb-10">
-                  Proceso de Afiliación
-                </h3>
                 <div className="border-t border-zinc-200">
                   {afiliacion.map((paso, idx) => (
-                    <div key={idx} className="flex flex-col sm:flex-row gap-6 sm:gap-8 py-8 border-b border-zinc-200 group">
+                    <div key={idx} className="flex flex-col sm:flex-row gap-6 sm:gap-8 py-8 border-b border-zinc-200 group hover:bg-zinc-50/50 transition-colors px-4 -mx-4 rounded-lg">
                       <span className="text-xl sm:text-2xl font-serif italic text-[#a27642] shrink-0 mt-0.5">
                         0{idx + 1}.
                       </span>
@@ -102,23 +98,35 @@ export const InvestorsSection = () => {
                 </div>
               </FadeIn>
 
-              {/* Bloque: Estructura de Honorarios */}
+              {/* Bloque: Estructura Económica y Condiciones */}
               <FadeIn delay={0.2} className="bg-[#0b172a] p-10 sm:p-14 text-white shadow-xl relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#a27642] opacity-5 blur-3xl rounded-full pointer-events-none"></div>
 
-                <h3 className="text-3xl font-serif mb-10 text-white relative z-10">
-                  Estructura de Honorarios
+                <h3 className="text-2xl sm:text-3xl font-serif mb-10 text-white relative z-10">
+                  Condiciones y Honorarios
                 </h3>
+                
+                {/* Condición General (Separada de los porcentajes) */}
+                <div className="relative z-10 border-l-2 border-[#a27642] pl-6 mb-10 pb-10 border-b border-zinc-800">
+                  <span className="block text-[10px] uppercase tracking-[0.2em] text-[#a27642] font-bold mb-2">
+                    Vigencia Establecida
+                  </span>
+                  <p className="text-lg font-serif text-white">
+                    Duración del Contrato de Administración de Operación Hotelera: <span className="text-[#e8d5a5] italic">5 años</span>.
+                  </p>
+                </div>
+
+                {/* Lista de Honorarios */}
                 <div className="space-y-6 text-sm font-light relative z-10">
                   {honorarios.map((item, idx) => (
                     <div 
                       key={idx} 
-                      className={`flex justify-between items-end border-b border-zinc-700/50 pb-3 ${idx === 4 ? 'pt-6' : ''}`}
+                      className={`flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 border-b border-zinc-700/50 pb-3 ${idx === 3 ? 'pt-6' : ''}`}
                     >
-                      <span className={item.isMain ? 'text-zinc-300' : 'text-zinc-500'}>
+                      <span className={`pr-4 ${item.isMain ? 'text-zinc-300' : 'text-zinc-500'}`}>
                         {item.label}
                       </span>
-                      <span className={`text-right font-medium ${item.isMain ? 'text-white' : 'text-zinc-400'}`}>
+                      <span className={`sm:text-right font-medium ${item.isMain ? 'text-white' : 'text-zinc-400'}`}>
                         {item.value}
                       </span>
                     </div>

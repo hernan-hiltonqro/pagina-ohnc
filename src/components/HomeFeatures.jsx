@@ -234,7 +234,7 @@ export const HomeFeatures = () => {
             <div className="w-16 h-[1px] bg-zinc-800 mb-10"></div>
             
             <Link to="/contacto" className="inline-block bg-zinc-900 px-10 py-5 text-xs uppercase tracking-[0.2em] font-medium text-white hover:bg-zinc-800 transition-all duration-300">
-              {siteData.homeFeatures.cta.buttonLabel}
+              Solicitar diagnóstico
             </Link>
           </FadeIn>
         </div>
