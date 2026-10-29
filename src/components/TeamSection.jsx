@@ -7,7 +7,7 @@ export const TeamSection = () => {
       <div className="max-w-7xl mx-auto px-6">
         <FadeIn className="text-center mb-20">
           <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 block mb-4">Liderazgo</span>
-          <h2 className="text-3xl sm:text-4xl font-serif text-zinc-900">Equipo de Soporte</h2>
+          <h2 className="text-3xl sm:text-4xl font-serif text-zinc-900">Equipo Directivo</h2>
         </FadeIn>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
