@@ -1,37 +1,34 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import { FadeIn } from './FadeIn';
 
 export const ContactSection = () => {
   const [submitting, setSubmitting] = useState(false);
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(false);
+  const formRef = useRef();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
     setError(false);
 
-    const form = e.target;
-    const data = new FormData(form);
-
     try {
-      // Reemplaza 'TU_ENDPOINT_AQUÍ' con el enlace único que te proporcione Formspree.io
-      const response = await fetch('https://formspree.io/f/xyeepoew', {
-        method: 'POST',
-        body: data,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
+      // REEMPLAZA ESTAS TRES CADENAS CON TUS CLAVES DE EMAILJS
+      const result = await emailjs.sendForm(
+        'service_qj9p2kj', 
+        'template_1vk1u3i', 
+        formRef.current, 
+        'VFWjxMGFYRQJqhLZe'
+      );
 
-      if (response.ok) {
+      if (result.text === 'OK') {
         setSucceeded(true);
-        form.reset();
-      } else {
-        setError(true);
+        formRef.current.reset();
       }
     } catch (err) {
       setError(true);
+      console.error(err);
     } finally {
       setSubmitting(false);
     }
@@ -41,7 +38,6 @@ export const ContactSection = () => {
     <section className="bg-white py-24 sm:py-32 border-b border-zinc-200">
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* Cabecera Introductoria */}
         <FadeIn className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-[10px] uppercase tracking-[0.3em] text-[#a27642] block mb-4 font-bold">
             Contacto Corporativo
@@ -55,10 +51,8 @@ export const ContactSection = () => {
           </p>
         </FadeIn>
 
-        {/* Contenedor Principal */}
         <FadeIn className="grid grid-cols-1 lg:grid-cols-12 shadow-2xl overflow-hidden border border-zinc-100">
           
-          {/* Columna Izquierda: Confidencialidad (Fondo Oscuro) */}
           <div className="lg:col-span-5 bg-[#0b172a] text-white p-12 sm:p-16 relative overflow-hidden flex flex-col justify-between">
             <div className="absolute top-0 right-0 w-48 h-48 bg-[#a27642] opacity-10 blur-[50px] rounded-full pointer-events-none"></div>
             
@@ -77,20 +71,26 @@ export const ContactSection = () => {
             </div>
           </div>
 
-          {/* Columna Derecha: Formulario con Manejo de Estado */}
           <div className="lg:col-span-7 bg-white p-12 sm:p-16 lg:p-20">
             {succeeded ? (
-              <div className="py-16 text-center space-y-4">
-                <div className="w-16 h-16 bg-[#0b172a] text-[#e8d5a5] rounded-full flex items-center justify-center mx-auto text-2xl font-serif">✓</div>
+              <div className="py-12 text-center space-y-6">
+                <div className="w-16 h-16 bg-[#0b172a] text-[#e8d5a5] rounded-full flex items-center justify-center mx-auto text-2xl font-serif mb-6">✓</div>
                 <h3 className="text-2xl font-serif text-[#0b172a]">Solicitud enviada con éxito</h3>
-                <p className="text-zinc-600 font-light max-w-md mx-auto text-sm leading-relaxed">
+                <p className="text-zinc-600 font-light max-w-md mx-auto text-sm leading-relaxed mb-8">
                   Hemos recibido la información de su activo. Nuestro comité directivo se pondrá en contacto con usted en un plazo menor a 48 horas hábiles.
                 </p>
+                <button 
+                  onClick={() => setSucceeded(false)}
+                  className="inline-block text-[10px] uppercase tracking-widest text-[#a27642] font-bold border-b border-[#a27642] pb-1 hover:text-[#0b172a] hover:border-[#0b172a] transition-colors"
+                >
+                  Enviar otra solicitud
+                </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-10">
-           
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-10">
                 
+                <input type="text" name="_gotcha" style={{ display: 'none' }} tabIndex="-1" autoComplete="off" />
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                   <div className="flex flex-col">
                     <label htmlFor="nombre" className="text-[9px] uppercase tracking-widest text-zinc-400 mb-2 font-bold">Nombre Completo</label>
