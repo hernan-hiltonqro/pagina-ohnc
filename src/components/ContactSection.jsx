@@ -16,7 +16,7 @@ export const ContactSection = () => {
     try {
       // REEMPLAZA ESTAS TRES CADENAS CON TUS CLAVES DE EMAILJS
       const result = await emailjs.sendForm(
-        'service_qj9p2kj', 
+        'service_k0mjvdx', 
         'template_1vk1u3i', 
         formRef.current, 
         'VFWjxMGFYRQJqhLZe'
