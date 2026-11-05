@@ -5,28 +5,28 @@ export const InvestorsSection = () => {
   const afiliacion = [
     {
       title: "Diagnóstico",
-      desc: "Análisis del activo, operación, marca, mercado, situación y objetivos del propietario."
+      desc: "Evaluación del inmueble, la operación, la marca, el mercado y los objetivos del propietario."
     },
     {
       title: "Propuesta",
-      desc: "Definición del modelo, propuesta económica y evaluación legal."
+      desc: "Modelo de gestión, propuesta económica y revisión legal."
     },
     {
-      title: "Acuerdo",
-      desc: "Presentación y firma del Contrato de Administración de Operación Hotelera."
+      title: "Contrato",
+      desc: "Firma del contrato de administración y operación hotelera."
     },
     {
       title: "Arranque",
-      desc: "Implementación de recursos tecnológicos (Intranet, encuestas) e inicio formal de la gestión."
+      desc: "Instalación de sistemas e inicio formal de la gestión."
     }
   ];
 
   const honorarios = [
-    { label: "Honorarios base (s/ Ingresos de Habitaciones)", value: "5%", isMain: true },
-    { label: "Honorarios por éxito (s/ GOP obtenido)", value: "5%", isMain: true },
-    { label: "Incentivo por excedente (GOP vs Presupuesto)", value: "10% sobre el monto excedente", isMain: true },
-    { label: "Regalías de marca, MKT y Comisiones", value: "A cuenta del propietario", isMain: false },
-    { label: "Sistemas Back, POS y Nómina", value: "Contratación vía TCA a cargo del propietario (Gestión operativa por GEOH)", isMain: false }
+    { label: "Honorario base", value: "5% sobre ingresos de habitaciones", isMain: true },
+    { label: "Honorario por resultado", value: "5% sobre la utilidad bruta de operación (GOP)", isMain: true },
+    { label: "Incentivo", value: "10% sobre el GOP que exceda el presupuesto", isMain: true },
+    { label: "Regalías, mercadotecnia y comisiones de la franquicia", value: "A cargo del propietario", isMain: false },
+    { label: "Sistemas administrativo, de punto de venta y de nómina", value: "Contratación vía TCA a cargo del propietario; operación a cargo de GEOH", isMain: false }
   ];
 
   return (
@@ -58,7 +58,7 @@ export const InvestorsSection = () => {
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-8 h-[1px] bg-[#a27642]"></div>
                 <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#a27642]">
-                  Crecimiento Conjunto
+                  Incorporación de hoteles
                 </span>
               </div>
               
@@ -68,12 +68,12 @@ export const InvestorsSection = () => {
               </h2>
               
               <p className="text-base sm:text-lg text-[#334155] font-light leading-relaxed mb-10 max-w-sm">
-                El camino estructurado para integrar su propiedad a nuestro ecosistema de gestión, garantizando transparencia técnica y jurídica.
+                Cuatro etapas para incorporar su hotel a la gestión de GEOH, con condiciones técnicas y legales claras desde el inicio.
               </p>
 
               <Link to="/contacto" className="inline-block bg-[#0b172a] px-10 py-5 text-xs uppercase tracking-[0.2em] font-medium text-white hover:bg-[#a27642] transition-all duration-300 shadow-lg">
-  Solicitar diagnóstico
-</Link>
+                Solicitar diagnóstico
+              </Link>
             </FadeIn>
 
             {/* Columna Derecha: Información Detallada */}
@@ -103,18 +103,23 @@ export const InvestorsSection = () => {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#a27642] opacity-5 blur-3xl rounded-full pointer-events-none"></div>
 
                 <h3 className="text-2xl sm:text-3xl font-serif mb-10 text-white relative z-10">
-                  Condiciones y Honorarios
+                  Condiciones y honorarios
                 </h3>
                 
-                {/* Condición General (Separada de los porcentajes) */}
-                <div className="relative z-10 border-l-2 border-[#a27642] pl-6 mb-10 pb-10 border-b border-zinc-800">
+                {/* Condición General */}
+                <div className="relative z-10 border-l-2 border-[#a27642] pl-6 mb-8 pb-8 border-b border-zinc-800">
                   <span className="block text-[10px] uppercase tracking-[0.2em] text-[#a27642] font-bold mb-2">
-                    Vigencia Establecida
+                    Vigencia del contrato
                   </span>
                   <p className="text-lg font-serif text-white">
-                    Duración del Contrato de Administración de Operación Hotelera: <span className="text-[#e8d5a5] italic">5 años</span>.
+                    <span className="text-[#e8d5a5] italic">5 años</span>.
                   </p>
                 </div>
+
+                {/* Frase sugerida antes de los porcentajes */}
+                <p className="text-base text-[#e8d5a5] font-serif italic mb-6 relative z-10">
+                  Dos de cada tres conceptos de honorarios dependen del resultado del hotel.
+                </p>
 
                 {/* Lista de Honorarios */}
                 <div className="space-y-6 text-sm font-light relative z-10">

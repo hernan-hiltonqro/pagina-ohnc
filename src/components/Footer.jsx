@@ -21,39 +21,39 @@ export const Footer = () => {
             </h4>
             
             <div className="mb-6">
-              <p className="text-[11px] uppercase tracking-wider text-white mb-1">Sede Comercial y Operativa</p>
+              <p className="text-[11px] uppercase tracking-wider text-white mb-1">Oficinas</p>
               <p className="text-sm text-zinc-400">Blvd. Bernardo Quintana, C.P. 76000<br/>Santiago de Querétaro, Qro.</p>
             </div>
             
             <div className="mb-6 space-y-2 text-sm text-zinc-400">
-              <p className="text-[11px] uppercase tracking-wider text-white mb-1">Contacto Directo</p>
+              <p className="text-[11px] uppercase tracking-wider text-white mb-1">Contacto</p>
               <p>+52 (442) 000 0000</p>
               <p className="hover:text-white transition-colors cursor-pointer">expansion@geoh.com</p>
             </div>
           </div>
 
-          {/* Columna 2: Nuestro Modelo */}
+          {/* Columna 2: Nuestro Modelo / Áreas de gestión */}
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-white mb-8">
-              Nuestro Modelo
+              Áreas de gestión
             </h4>
             <ul className="space-y-4 text-sm">
-              <li><Link to="/servicios" className="hover:text-white transition-colors">Comercial e Ingresos</Link></li>
-              <li><Link to="/servicios" className="hover:text-white transition-colors">Gestión Financiera</Link></li>
-              <li><Link to="/servicios" className="hover:text-white transition-colors">Talento Humano</Link></li>
-              <li><Link to="/servicios" className="hover:text-white transition-colors">Operaciones</Link></li>
-              <li><Link to="/servicios" className="hover:text-white transition-colors">Tecnología e Inteligencia</Link></li>
+              <li><Link to="/servicios" className="hover:text-white transition-colors">Comercial e ingresos</Link></li>
+              <li><Link to="/servicios" className="hover:text-white transition-colors">Finanzas y control</Link></li>
+              <li><Link to="/servicios" className="hover:text-white transition-colors">Operación</Link></li>
+              <li><Link to="/servicios" className="hover:text-white transition-colors">Talento y liderazgo</Link></li>
+              <li><Link to="/servicios" className="hover:text-white transition-colors">Activo y tecnología</Link></li>
             </ul>
           </div>
 
-          {/* Columna 3: Nosotros (Actualizado con Legado) */}
+          {/* Columna 3: Nosotros */}
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-white mb-8">
               Nosotros
             </h4>
             <ul className="space-y-4 text-sm">
               <li><Link to="/" className="hover:text-white transition-colors">Inicio</Link></li>
-              <li><Link to="/nosotros" className="hover:text-white transition-colors">Filosofía</Link></li>
+              <li><Link to="/nosotros" className="hover:text-white transition-colors">Nosotros</Link></li>
               <li><Link to="/legado" className="hover:text-white transition-colors">Legado</Link></li>
               <li><Link to="/servicios" className="hover:text-white transition-colors">Servicios</Link></li>
               <li><Link to="/portafolio" className="hover:text-white transition-colors">Portafolio</Link></li>
@@ -61,23 +61,23 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Columna 4: Saber Más */}
+          {/* Columna 4: Saber Más / Información legal */}
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-white mb-8">
-              Saber Más
+              Información legal
             </h4>
             <ul className="space-y-4 text-sm">
               <li><a href="#" className="hover:text-white transition-colors">Política de privacidad</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Aviso Legal</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Política de Cookies</a></li>
-              <li><Link to="/contacto" className="hover:text-white transition-colors">Contacto Corporativo</Link></li>
+              <li><Link to="/contacto" className="hover:text-white transition-colors">Contacto</Link></li>
             </ul>
           </div>
 
         </div>
       </div>
 
-      {/* Marca de agua gigante de fondo (Actualizada a GEOH) */}
+      {/* Marca de agua gigante de fondo */}
       <div className="absolute bottom-16 left-0 w-full overflow-hidden flex justify-center pointer-events-none select-none opacity-[0.03]">
         <span className="text-[18vw] font-serif font-bold leading-none tracking-tighter text-white whitespace-nowrap">
           GEOH

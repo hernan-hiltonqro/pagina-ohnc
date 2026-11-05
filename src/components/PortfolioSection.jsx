@@ -3,23 +3,25 @@ import { FadeIn } from './FadeIn';
 export const PortfolioSection = () => {
   const portfolio = [
     {
-      type: "Full Service", // <--- Aquí quedó corregido a solo Full Service
+      type: "Servicio completo",
       name: "Hilton Querétaro",
-      desc: "Activo operado bajo rigurosos estándares internacionales, diseñado para maximizar los ingresos del propietario a través de una oferta integral que atiende tanto al huésped de placer como a grupos corporativos.",
+      desc: "Operado bajo estándares de cadena internacional. Ingresos por habitaciones, eventos y alimentos y bebidas, con mercado de placer y grupos corporativos.",
       img: "https://www.hilton.com/im/en/QROJSHH/22860656/hilton-qro-7.jpg?impolicy=crop&cw=5000&ch=2799&gravity=NorthWest&xposition=0&yposition=6&rw=768&rh=430", 
       features: [
-        "Eventos y Convenciones",
-        "Alta Gastronomía"
+        "Eventos y convenciones",
+        "Alimentos y bebidas",
+        "[__] habitaciones"
       ]
     },
     {
-      type: "Focused Service", // <--- Aquí quedó como Focused Service
+      type: "Servicio selecto",
       name: "Hampton Juriquilla",
-      desc: "Propiedad optimizada para mantener altos niveles de ocupación con una estructura de costos eficiente, garantizando rentabilidad sin comprometer la promesa al huésped.",
+      desc: "Ocupación alta con estructura de costos eficiente. Rentabilidad sin afectar el estándar de la marca.",
       img: "https://images.trvl-media.com/lodging/110000000/109390000/109388300/109388278/46cf3a70.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill", 
       features: [
-        "Eficiencia Gestionable",
-        "Viajeros de Negocios"
+        "Viajero de negocios",
+        "Costos eficientes",
+        "[__] habitaciones"
       ]
     }
   ];
@@ -32,10 +34,10 @@ export const PortfolioSection = () => {
         <FadeIn>
           <h2 className="font-serif tracking-tight flex flex-col items-center">
             <span className="text-5xl sm:text-6xl md:text-7xl leading-[1] text-[#0b172a] block">
-              Activos
+              Hoteles
             </span>
             <span className="text-5xl sm:text-6xl md:text-7xl leading-[1] text-[#5c6b7f] italic font-light block mt-1">
-              en gestión.
+              en operación.
             </span>
           </h2>
         </FadeIn>

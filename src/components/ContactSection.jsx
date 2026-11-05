@@ -40,14 +40,14 @@ export const ContactSection = () => {
         
         <FadeIn className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-[10px] uppercase tracking-[0.3em] text-[#a27642] block mb-4 font-bold">
-            Contacto Corporativo
+            Contacto
           </span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#0b172a] leading-[1.1] mb-6">
             Inicie su proceso <br />
             <span className="italic text-[#5c6b7f] font-light">de diagnóstico.</span>
           </h1>
           <p className="text-base text-[#5c6b7f] font-light leading-relaxed">
-            Al enviar su solicitud, nuestro equipo directivo evaluará el perfil de su propiedad. Recibirá una respuesta en un plazo máximo de 48 horas hábiles para coordinar el análisis inicial.
+            El equipo directivo revisa cada solicitud. Respuesta en un plazo máximo de 48 horas hábiles para agendar el diagnóstico.
           </p>
         </FadeIn>
 
@@ -59,14 +59,14 @@ export const ContactSection = () => {
             <div className="relative z-10">
               <h3 className="text-3xl sm:text-4xl font-serif mb-6 text-white leading-tight">Evaluación confidencial</h3>
               <p className="text-sm text-zinc-300 font-light leading-relaxed mb-12">
-                Entendemos la sensibilidad de su patrimonio. Nuestro equipo directivo revisa personalmente cada solicitud para garantizar absoluta confidencialidad en el análisis de su propiedad.
+                La información de su hotel la revisa únicamente el equipo directivo.
               </p>
             </div>
 
             <div className="space-y-10 text-sm font-light text-zinc-300 relative z-10 border-t border-zinc-700/50 pt-10">
               <div>
-                <p className="text-[10px] uppercase tracking-widest text-[#5c6b7f] mb-2 font-bold">El siguiente paso formal</p>
-                <p className="leading-relaxed">Firma de un Acuerdo de Confidencialidad (NDA) para proteger jurídicamente la información antes de profundizar en los datos operativos y financieros del negocio.</p>
+                <p className="text-[10px] uppercase tracking-widest text-[#5c6b7f] mb-2 font-bold">Siguiente paso</p>
+                <p className="leading-relaxed">Firma de un acuerdo de confidencialidad antes de revisar cualquier dato operativo o financiero.</p>
               </div>
             </div>
           </div>
@@ -75,9 +75,9 @@ export const ContactSection = () => {
             {succeeded ? (
               <div className="py-12 text-center space-y-6">
                 <div className="w-16 h-16 bg-[#0b172a] text-[#e8d5a5] rounded-full flex items-center justify-center mx-auto text-2xl font-serif mb-6">✓</div>
-                <h3 className="text-2xl font-serif text-[#0b172a]">Solicitud enviada con éxito</h3>
+                <h3 className="text-2xl font-serif text-[#0b172a]">Solicitud recibida</h3>
                 <p className="text-zinc-600 font-light max-w-md mx-auto text-sm leading-relaxed mb-8">
-                  Hemos recibido la información de su activo. Nuestro comité directivo se pondrá en contacto con usted en un plazo menor a 48 horas hábiles.
+                  Le contactaremos en un plazo máximo de 48 horas hábiles.
                 </p>
                 <button 
                   onClick={() => setSucceeded(false)}
@@ -93,18 +93,18 @@ export const ContactSection = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                   <div className="flex flex-col">
-                    <label htmlFor="nombre" className="text-[9px] uppercase tracking-widest text-zinc-400 mb-2 font-bold">Nombre Completo</label>
+                    <label htmlFor="nombre" className="text-[9px] uppercase tracking-widest text-zinc-400 mb-2 font-bold">Nombre completo</label>
                     <input type="text" id="nombre" name="nombre" required className="border-b border-zinc-200 py-2 focus:outline-none focus:border-[#0b172a] bg-transparent text-sm text-[#0b172a] transition-colors placeholder:text-zinc-300" placeholder="Ej. Carlos Mendoza" />
                   </div>
                   <div className="flex flex-col">
-                    <label htmlFor="empresa" className="text-[9px] uppercase tracking-widest text-zinc-400 mb-2 font-bold">Empresa / Hotel</label>
+                    <label htmlFor="empresa" className="text-[9px] uppercase tracking-widest text-zinc-400 mb-2 font-bold">Hotel o empresa</label>
                     <input type="text" id="empresa" name="empresa" required className="border-b border-zinc-200 py-2 focus:outline-none focus:border-[#0b172a] bg-transparent text-sm text-[#0b172a] transition-colors placeholder:text-zinc-300" placeholder="Nombre de la propiedad" />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                   <div className="flex flex-col">
-                    <label htmlFor="correo" className="text-[9px] uppercase tracking-widest text-zinc-400 mb-2 font-bold">Correo Electrónico</label>
+                    <label htmlFor="correo" className="text-[9px] uppercase tracking-widest text-zinc-400 mb-2 font-bold">Correo electrónico</label>
                     <input type="email" id="correo" name="email" required className="border-b border-zinc-200 py-2 focus:outline-none focus:border-[#0b172a] bg-transparent text-sm text-[#0b172a] transition-colors placeholder:text-zinc-300" placeholder="correo@empresa.com" />
                   </div>
                   <div className="flex flex-col">
@@ -114,12 +114,12 @@ export const ContactSection = () => {
                 </div>
 
                 <div className="flex flex-col">
-                  <label htmlFor="mensaje" className="text-[9px] uppercase tracking-widest text-zinc-400 mb-2 font-bold">Situación actual del activo</label>
-                  <textarea id="mensaje" name="mensaje" rows="4" required className="border-b border-zinc-200 py-2 focus:outline-none focus:border-[#0b172a] bg-transparent text-sm text-[#0b172a] transition-colors resize-none placeholder:text-zinc-300" placeholder="Especifique brevemente las áreas de oportunidad o el tipo de gestión que busca para su hotel en marcha..."></textarea>
+                  <label htmlFor="mensaje" className="text-[9px] uppercase tracking-widest text-zinc-400 mb-2 font-bold">Situación actual del hotel</label>
+                  <textarea id="mensaje" name="mensaje" rows="4" required className="border-b border-zinc-200 py-2 focus:outline-none focus:border-[#0b172a] bg-transparent text-sm text-[#0b172a] transition-colors resize-none placeholder:text-zinc-300" placeholder="Describa brevemente el hotel, su situación actual y el tipo de gestión que busca."></textarea>
                 </div>
 
                 {error && (
-                  <p className="text-red-600 text-xs">Hubo un error al enviar el formulario. Por favor, inténtelo de nuevo.</p>
+                  <p className="text-red-600 text-xs">No fue posible enviar la solicitud. Verifique su conexión e inténtelo de nuevo.</p>
                 )}
 
                 <button 

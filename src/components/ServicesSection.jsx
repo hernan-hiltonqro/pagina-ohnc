@@ -6,50 +6,51 @@ export const ServicesSection = () => {
   const servicios = [
     {
       id: "01",
-      title: "Inteligencia comercial e ingresos",
+      title: "Comercial e ingresos",
       details: [
-        "Análisis del cliente y elección del momento adecuado para la venta.",
-        "Estrategia dinámica de precio y optimización de canales de distribución.",
-        "Construcción y gestión de una mezcla de venta altamente rentable."
+        "Segmentación de clientes y pronóstico de demanda.",
+        "Estrategia de tarifas ajustada a la demanda.",
+        "Selección de canales por costo y rendimiento.",
+        "Mezcla de venta orientada a utilidad, no solo a ocupación."
       ]
     },
     {
       id: "02",
-      title: "Gestión financiera y control",
+      title: "Finanzas y control",
       details: [
-        <><strong className="text-[#0b172a] font-medium">Ingreso y caja:</strong> Flujo de caja, equilibrio entre entradas y salidas, e información diaria en el ecosistema digital (BI).</>,
-        <><strong className="text-[#0b172a] font-medium">Gasto y tesorería:</strong> Control de costos fijos y variables, presupuesto vs. forecast, y firmas mancomunadas.</>,
-        <><strong className="text-[#0b172a] font-medium">Cumplimiento y resultados:</strong> Obligaciones fiscales, bases contables para la estrategia fiscal, y estados financieros dentro de los 10 días posteriores al cierre (salvo lo acordado).</>
+        <><strong className="text-[#0b172a] font-medium">Ingreso y caja:</strong> Control del flujo de efectivo con información diaria en línea.</>,
+        <><strong className="text-[#0b172a] font-medium">Gasto y tesorería:</strong> Control de costos fijos y variables, presupuesto contra pronóstico y firmas mancomunadas.</>,
+        <><strong className="text-[#0b172a] font-medium">Cumplimiento:</strong> Obligaciones fiscales al corriente. Estados financieros a más tardar 10 días después del cierre.</>
       ]
     },
     {
       id: "03",
-      title: "Operación, marca y experiencia",
+      title: "Operación y estándares de marca",
       details: [
-        "Auditoría y cumplimiento riguroso de los estándares de marca.",
-        "Aseguramiento de la consistencia del servicio en todas las áreas.",
-        "Gestión activa de comentarios, reseñas y reputación del hotel.",
-        "Resolución ágil y efectiva de problemas operativos para proteger la experiencia."
+        "Auditorías internas previas a las de la marca.",
+        "Estándares de servicio iguales en todas las áreas.",
+        "Seguimiento de reseñas y reputación en línea.",
+        "Atención inmediata de incidencias operativas."
       ]
     },
     {
       id: "04",
-      title: "Talento y liderazgo operativo",
+      title: "Talento y liderazgo",
       details: [
-        "Formación integral y retención de talento clave para la hospitalidad.",
-        "Capacitación de equipos en la lectura e interpretación de indicadores del negocio.",
-        "Empoderamiento del personal para la toma de decisiones asertivas.",
-        "Fomento de una cultura operativa orientada a la responsabilidad y los resultados."
+        "Selección, capacitación y retención de personal clave.",
+        "Formación de gerentes en lectura de indicadores.",
+        "Facultades claras para decidir en cada puesto.",
+        "Evaluación por resultados."
       ]
     },
     {
       id: "05",
-      title: "Proveedores, tecnología y activo",
+      title: "Activo, proveedores y tecnología",
       details: [
-        "Selección y gestión de proveedores estratégicos como aliados confiables.",
-        "Implementación de herramientas tecnológicas para simplificar procesos internos.",
-        "Garantía de disponibilidad operativa y mantenimiento constante del activo.",
-        "Supervisión del uso disciplinado y eficiente de los recursos materiales y energéticos."
+        "Programa de mantenimiento preventivo y correctivo.",
+        "Negociación y evaluación de proveedores.",
+        "Herramientas tecnológicas para simplificar procesos.",
+        "Control del consumo de energía y materiales."
       ]
     }
   ];
@@ -66,17 +67,17 @@ export const ServicesSection = () => {
             <div className="flex items-center gap-4 mb-6">
               <div className="w-8 h-[1px] bg-[#a27642]"></div>
               <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#a27642]">
-                Gestión Integral, con Sentido
+                Alcance de la gestión
               </span>
             </div>
             
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-serif text-[#0b172a] leading-[1.05] tracking-tight mb-8">
-              Una sola <br/>
-              <span className="italic text-[#5c6b7f] font-light">agenda para cuidar el negocio.</span>
+              Cinco áreas bajo <br/>
+              <span className="italic text-[#5c6b7f] font-light">una sola dirección.</span>
             </h1>
             
             <p className="text-lg sm:text-xl text-[#5c6b7f] font-light leading-relaxed max-w-2xl">
-              Unimos las áreas que determinan cómo se siente el hotel, cómo opera y qué valor deja a sus propietarios.
+              Ventas, finanzas, operación, talento y activo se gestionan con un mismo objetivo: la utilidad del propietario.
             </p>
           </FadeIn>
         </div>
@@ -132,11 +133,11 @@ export const ServicesSection = () => {
         <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
           <FadeIn>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif leading-tight mb-8">
-              Llevemos la gestión de su activo <br className="hidden sm:block" />
-              <span className="italic text-[#e8d5a5] font-light">al siguiente nivel.</span>
+              Evalúe la gestión actual <br className="hidden sm:block" />
+              <span className="italic text-[#e8d5a5] font-light">de su hotel.</span>
             </h2>
             <p className="text-zinc-300 font-light mb-12 max-w-2xl mx-auto">
-              Estamos listos para transformar la información en decisiones de valor y proteger la rentabilidad de su patrimonio.
+              El diagnóstico identifica las áreas de mejora y su impacto en la utilidad.
             </p>
             <Link 
               to="/contacto" 

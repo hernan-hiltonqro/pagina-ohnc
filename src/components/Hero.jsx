@@ -5,15 +5,15 @@ import { GeohLogo } from './LogoGEOH';
 const PILLARS = [
   {
     title: 'Rentabilidad',
-    text: 'Decisiones comerciales y de costos orientadas a la utilidad del hotel.',
+    text: 'Cada decisión de venta y de costo se evalúa por su efecto en la utilidad.',
   },
   {
     title: 'Ejecución',
-    text: 'Estándares operativos que se cumplen todos los días, no solo en el plan.',
+    text: 'Estándares que se cumplen en la operación diaria, no solo en el papel.',
   },
   {
     title: 'Visibilidad',
-    text: 'Cifras claras y oportunas para que el propietario decida con certeza.',
+    text: 'Cifras confiables y a tiempo para decidir con fundamento.',
   },
 ];
 
@@ -48,12 +48,13 @@ export const Hero = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative flex min-h-[calc(100vh-80px)] overflow-hidden border-b border-zinc-900 bg-[#0c0c0e]"
+      className="relative flex min-h-[calc(100vh-80px)] overflow-hidden border-b border-[#2B2C30] bg-[#0A0A0A]"
     >
+      {/* Destello de luz adaptado a la nueva paleta */}
       <div
-        className="pointer-events-none absolute right-0 top-1/2 -mt-[19rem] h-[38rem] w-[38rem] rounded-full opacity-[0.05] blur-3xl"
+        className="pointer-events-none absolute right-0 top-1/2 -mt-[19rem] h-[38rem] w-[38rem] rounded-full opacity-[0.15] blur-3xl"
         style={{
-          background: '#e8d5a5',
+          background: 'radial-gradient(circle, #804E3B 0%, #552828 100%)',
           transform: 'translateY(calc(var(--geoh-p, 0) * -90px))',
           willChange: 'transform',
         }}
@@ -71,31 +72,33 @@ export const Hero = () => {
         >
           <FadeIn>
             <div className="mb-10 flex items-center gap-3 md:mb-14">
-              <span className="h-7 w-[3px] bg-[#a27642]" aria-hidden="true" />
-              <span className="font-serif text-2xl tracking-wide text-zinc-100">GEOH</span>
+              {/* Línea de acento Terracota */}
+              <span className="h-7 w-[3px] bg-[#804E3B]" aria-hidden="true" />
+              <span className="font-serif text-2xl tracking-wide text-[#F2F2F2]">GEOH</span>
             </div>
 
-            <h1 className="max-w-[16ch] text-balance font-serif text-[2.75rem] leading-[1.05] tracking-tight text-zinc-50 sm:text-6xl lg:text-[4.25rem]">
-              Gestión estratégica de operación hotelera.
+            {/* Texto principal en Gris Perla */}
+            <h1 className="max-w-[16ch] text-balance font-serif text-[2.75rem] leading-[1.05] tracking-tight text-[#F2F2F2] sm:text-6xl lg:text-[4.25rem]">
+              Gestión hotelera orientada a la utilidad del propietario.
             </h1>
 
-            <p className="mt-8 max-w-xl text-base font-light leading-relaxed text-zinc-400 md:text-lg">
-              Protegemos e impulsamos el valor de su patrimonio mediante rigor comercial, solidez
-              financiera y excelencia operativa, siempre con enfoque en utilidad.
+            {/* Texto descriptivo ligeramente más oscuro para jerarquía */}
+            <p className="mt-8 max-w-xl text-base font-light leading-relaxed text-[#F2F2F2]/70 md:text-lg">
+              Administramos la operación, las ventas y las finanzas de su hotel. Usted recibe resultados medibles cada mes.
             </p>
 
             <dl className="mt-14 grid gap-8 md:grid-cols-3 md:gap-6">
               {PILLARS.map((p) => (
-                <div key={p.title} className="border-t border-[#a27642]/60 pt-4">
-                  <dt className="font-serif text-lg text-zinc-100">{p.title}</dt>
-                  <dd className="mt-2 text-sm leading-relaxed text-zinc-500">{p.text}</dd>
+                <div key={p.title} className="border-t border-[#804E3B]/50 pt-4">
+                  <dt className="font-serif text-lg text-[#F2F2F2]">{p.title}</dt>
+                  <dd className="mt-2 text-sm leading-relaxed text-[#5C5E66]">{p.text}</dd>
                 </div>
               ))}
             </dl>
           </FadeIn>
         </div>
 
-        {/* Contenedor del Logo Restaurado */}
+        {/* Contenedor del Logo */}
         <div className="flex items-center justify-center lg:col-span-5 lg:justify-end">
           <div
             className="w-full max-w-[19rem] sm:max-w-[22rem] lg:max-w-[24rem]"
@@ -113,5 +116,3 @@ export const Hero = () => {
     </section>
   );
 };
-
-//prueba de comentario

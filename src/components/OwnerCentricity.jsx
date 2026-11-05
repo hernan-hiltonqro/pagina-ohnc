@@ -13,14 +13,14 @@ const COLORS = {
   line: 'rgba(232, 213, 165, 0.3)',
 };
 
-const purpose = 'Creamos valor para el propietario hoy y a largo plazo.';
+const purpose = 'Generamos valor para el propietario en el corto y en el largo plazo.';
 
 const stages = [
-  { title: 'Entendemos', desc: 'El negocio y su entorno.' },
-  { title: 'Visualizamos', desc: 'El potencial y la estrategia.' },
-  { title: 'Ejecutamos', desc: 'La operación y los resultados.' },
-  { title: 'Disciplina y armonía', desc: 'Gestión financiera, equilibrio y sostenibilidad.' },
-  { title: 'Simplificamos procesos', desc: 'Con tecnología e innovación.' },
+  { title: 'Diagnóstico', desc: 'El hotel y su mercado.' },
+  { title: 'Estrategia', desc: 'Potencial, metas y prioridades.' },
+  { title: 'Ejecución', desc: 'Operación diaria y resultados.' },
+  { title: 'Control financiero', desc: 'Presupuesto, flujo y sostenibilidad.' },
+  { title: 'Mejora continua', desc: 'Procesos más simples con apoyo de tecnología.' },
 ];
 
 /* Escala reducida para dar más aire al diagrama */
@@ -34,29 +34,29 @@ const ORBIT = 275; // Radio de la órbita (antes 305)
 
 const pillars = [
   {
-    title: 'Legado',
-    desc: 'Preservamos la visión y la esencia, construyendo valor sostenible para las futuras generaciones.',
+    title: 'Continuidad',
+    desc: 'Preservamos la identidad del hotel y lo preparamos para la siguiente generación.',
     dx: 0,
     dy: -D,
-    label: { x: CX, y: 225, lines: ['Legado'] },
+    label: { x: CX, y: 225, lines: ['Continuidad'] },
   },
   {
-    title: 'Cuidado del activo',
-    desc: 'Protegemos y maximizamos el valor del activo con una gestión eficiente, responsable y orientada al largo plazo.',
+    title: 'Valor del activo',
+    desc: 'Mantenimiento y reinversión planeados para conservar y aumentar el valor del inmueble.',
     dx: D,
     dy: 0,
-    label: { x: 775, y: CY, lines: ['Cuidado', 'del activo'] },
+    label: { x: 775, y: CY, lines: ['Valor', 'del activo'] },
   },
   {
-    title: 'Cuidado de los clientes',
-    desc: 'Brindamos experiencias memorables que generan satisfacción, lealtad y valor sostenible para el negocio.',
+    title: 'Clientes',
+    desc: 'Satisfacción medida y atendida, porque un huésped que regresa reduce el costo de venta.',
     dx: 0,
     dy: D,
-    label: { x: CX, y: 575, lines: ['Cuidado de los', 'clientes'] },
+    label: { x: CX, y: 575, lines: ['Clientes'] },
   },
   {
     title: 'Talento',
-    desc: 'Desarrollamos profesionales que gestionan, no solo ejecutan, impulsando una cultura de aprendizaje y crecimiento continuo.',
+    desc: 'Gerentes capaces de leer indicadores, decidir y responder por sus resultados.',
     dx: -D,
     dy: 0,
     label: { x: 425, y: CY, lines: ['Talento'] },
@@ -138,11 +138,12 @@ const Figure = ({ compact = false }) => {
               </text>
             ))
           )}
-          {['Owner', 'Centricity'].map((line, k) => (
+          {/* Texto central: Propietario */}
+          {['Propietario'].map((line, k, arr) => (
             <text
               key={line}
               x={CX}
-              y={CY + (k - 0.5) * 24}
+              y={CY + (k - (arr.length - 1) / 2) * 24}
               dy="0.35em"
               textAnchor="middle"
               fontSize="20"
@@ -224,9 +225,9 @@ export const OwnerCentricity = () => (
 
     <div className="mx-auto max-w-7xl px-6 relative z-10">
       <header className="mx-auto mb-16 max-w-3xl text-center xl:mb-12">
-        <p className="mb-4 text-xs font-medium text-[color:var(--oc-gold)] tracking-[0.2em] uppercase">Filosofía operativa</p>
+        <p className="mb-4 text-xs font-medium text-[color:var(--oc-gold)] tracking-[0.2em] uppercase">Modelo de gestión</p>
         <h2 id="oc-title" className="font-serif text-3xl sm:text-4xl leading-tight text-zinc-50">
-          El ecosistema del valor
+          El propietario al centro
         </h2>
         <div
           aria-hidden="true"
@@ -235,7 +236,7 @@ export const OwnerCentricity = () => (
         />
         <p className="mt-8 font-serif text-xl sm:text-2xl italic text-[color:var(--oc-gold)]">{purpose}</p>
         <p className="mt-4 text-base leading-relaxed text-[color:var(--oc-muted)]">
-          Cinco etapas guían nuestra gestión, y cuatro pilares se unen en el centro, en torno al propietario.
+          Cinco etapas ordenan la gestión. Cuatro pilares la sostienen, alrededor de los intereses del propietario.
         </p>
       </header>
 
@@ -290,7 +291,7 @@ export const OwnerCentricity = () => (
 
       {/* ===== Pilares Inferiores ===== */}
       <div className="mt-24 xl:mt-16 border-t border-zinc-800/60 pt-16">
-        <h3 className="text-center font-serif text-2xl sm:text-3xl text-zinc-50 mb-10">Cuatro pilares de valor</h3>
+        <h3 className="text-center font-serif text-2xl sm:text-3xl text-zinc-50 mb-10">Cuatro pilares</h3>
         <ul role="list" className="grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
           {pillars.map((p) => (
             <li key={p.title} className="bg-white/5 border border-white/10 p-6 rounded-sm hover:bg-white/10 transition-colors">

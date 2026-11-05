@@ -4,7 +4,6 @@ export const LegacySection = () => {
   return (
     <div className="bg-white pb-0">
       
-      {/* 1. Cabecera Editorial */}
       {/* 1. Cabecera Editorial con Diagrama Integrado */}
       <section className="relative min-h-[80vh] w-full overflow-hidden bg-zinc-900 flex items-center py-24">
         
@@ -18,21 +17,21 @@ export const LegacySection = () => {
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-            {/* Columna Izquierda: Textos originales que solicitaste conservar */}
+            {/* Columna Izquierda: Textos actualizados a Serio Ejecutivo */}
             <FadeIn>
               <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-400 block mb-6">
-                Operación hotelera / Continuidad generacional
+                Operación hotelera / Sucesión y continuidad
               </span>
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-serif text-white leading-[1.05] mb-8 tracking-tight">
                 El legado se honra <br/>
                 <span className="italic text-zinc-400">operándolo</span> mejor.
               </h1>
               <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed max-w-lg">
-                GEOH conecta la visión de quienes construyeron el hotel con la energía de quienes lo llevarán al futuro: rentabilidad, cuidado del activo, equipos que crecen y una operación que el propietario puede seguir con claridad.
+                GEOH acompaña la transición entre generaciones de propietarios. Asegura rentabilidad, conservación del activo y una operación con información clara para ambas partes.
               </p>
             </FadeIn>
 
-            {/* Columna Derecha: Diagrama Orbital (Minimalista y adaptado al diseño) */}
+            {/* Columna Derecha: Diagrama Orbital */}
             <FadeIn delay={0.2} className="relative flex justify-center items-center h-[350px] sm:h-[500px] opacity-90">
               
               {/* Órbitas ultrafinas */}
@@ -54,7 +53,7 @@ export const LegacySection = () => {
                 </span>
                 <div className="w-12 h-[1px] bg-gradient-to-r from-transparent via-[#a27642] to-transparent mb-4"></div>
                 <span className="text-lg sm:text-xl font-serif italic text-zinc-300">
-                  Legado que evoluciona
+                  Una gestión profesional
                 </span>
               </div>
 
@@ -64,7 +63,7 @@ export const LegacySection = () => {
                   Primera generación
                 </span>
                 <span className="block text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-zinc-300">
-                  La visión fundadora
+                  Fundadores
                 </span>
               </div>
               <div className="absolute right-0 bottom-[10%] sm:bottom-[15%] text-right">
@@ -72,7 +71,7 @@ export const LegacySection = () => {
                   Segunda generación
                 </span>
                 <span className="block text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-zinc-300">
-                  El siguiente capítulo
+                  Sucesores
                 </span>
               </div>
 
@@ -92,9 +91,11 @@ export const LegacySection = () => {
               </h2>
             </div>
             <div>
-              <p className="text-lg text-zinc-700 font-serif italic mb-6">Se conserva haciendo que funcione mejor, sin perder aquello que lo hace propio.</p>
+              <p className="text-lg text-zinc-700 font-serif italic mb-6">
+                Un patrimonio se conserva cuando se gestiona mejor.
+              </p>
               <p className="text-sm text-zinc-600 font-light leading-relaxed">
-                Para la primera generación, el hotel representa años de visión, esfuerzo y patrimonio. Para la segunda, una responsabilidad y una oportunidad. GEOH ayuda a que ambas miradas encuentren un mismo rumbo operativo: proteger la identidad del activo mientras se actualizan la gestión, la información y las decisiones.
+                Para la primera generación, el hotel es el resultado de años de inversión. Para la segunda, una responsabilidad. GEOH establece un rumbo común: conservar la identidad del hotel y modernizar su gestión.
               </p>
             </div>
           </FadeIn>
@@ -102,18 +103,18 @@ export const LegacySection = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-zinc-200 border border-zinc-200">
             <FadeIn delay={0.1} className="bg-zinc-50 p-12 hover:bg-white transition-colors">
               <span className="block font-serif text-zinc-400 mb-6 italic">01 / Proteger</span>
-              <h3 className="text-xl font-serif text-zinc-900 mb-4">La esencia</h3>
-              <p className="text-xs text-zinc-600 font-light leading-relaxed">La historia, el servicio y la identidad que distinguen al hotel y construyen confianza.</p>
+              <h3 className="text-xl font-serif text-zinc-900 mb-4">La identidad</h3>
+              <p className="text-xs text-zinc-600 font-light leading-relaxed">Historia, servicio y reputación del hotel.</p>
             </FadeIn>
             <FadeIn delay={0.2} className="bg-zinc-50 p-12 hover:bg-white transition-colors">
               <span className="block font-serif text-zinc-400 mb-6 italic">02 / Profesionalizar</span>
               <h3 className="text-xl font-serif text-zinc-900 mb-4">La operación</h3>
-              <p className="text-xs text-zinc-600 font-light leading-relaxed">Procesos, responsables y seguimiento para convertir experiencia en consistencia.</p>
+              <p className="text-xs text-zinc-600 font-light leading-relaxed">Procesos documentados, responsables definidos y seguimiento.</p>
             </FadeIn>
             <FadeIn delay={0.3} className="bg-zinc-50 p-12 hover:bg-white transition-colors">
               <span className="block font-serif text-zinc-400 mb-6 italic">03 / Proyectar</span>
               <h3 className="text-xl font-serif text-zinc-900 mb-4">El patrimonio</h3>
-              <p className="text-xs text-zinc-600 font-light leading-relaxed">Información y disciplina financiera para decidir con perspectiva de largo plazo.</p>
+              <p className="text-xs text-zinc-600 font-light leading-relaxed">Información financiera para decidir a largo plazo.</p>
             </FadeIn>
           </div>
         </div>
@@ -123,10 +124,10 @@ export const LegacySection = () => {
       <section className="py-32 bg-zinc-900 text-white border-b border-zinc-800">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center max-w-3xl mx-auto mb-24">
-            <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 block mb-4">Una conversación entre generaciones</span>
-            <h2 className="text-3xl sm:text-5xl font-serif mb-6">Un hotel puede honrar su origen <span className="italic text-zinc-400">y cambiar su manera de operar.</span></h2>
+            <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 block mb-4">Dos generaciones, una gestión</span>
+            <h2 className="text-3xl sm:text-5xl font-serif mb-6">Conservar el origen. <span className="italic text-zinc-400">Profesionalizar la operación.</span></h2>
             <p className="text-sm text-zinc-400 font-light leading-relaxed">
-              No se trata de elegir entre tradición y modernización. Se trata de que la experiencia acumulada y la nueva visión trabajen sobre el mismo tablero.
+              Tradición y modernización no se excluyen. La experiencia de los fundadores y la visión de los sucesores se revisan con los mismos indicadores.
             </p>
           </FadeIn>
 
@@ -134,8 +135,8 @@ export const LegacySection = () => {
             {/* 1ra Generación */}
             <FadeIn className="bg-zinc-800 border border-zinc-700 p-10 sm:p-14">
               <span className="text-[9px] uppercase tracking-[0.2em] text-zinc-400 block mb-6">Primera generación / Fundadores</span>
-              <h3 className="text-2xl font-serif mb-4">Lo que merece permanecer</h3>
-              <p className="text-sm text-zinc-400 font-light mb-8">La reputación construida, los vínculos con el destino, la cultura de servicio y el cuidado personal del activo.</p>
+              <h3 className="text-2xl font-serif mb-4">Lo que se conserva</h3>
+              <p className="text-sm text-zinc-400 font-light mb-8">Reputación, relaciones con el destino, cultura de servicio y cuidado del inmueble.</p>
               <ul className="space-y-4 text-xs text-zinc-300">
                 <li className="flex gap-3"><span className="text-zinc-500">+</span> Identidad y promesa de marca</li>
                 <li className="flex gap-3"><span className="text-zinc-500">+</span> Relaciones y conocimiento del negocio</li>
@@ -147,14 +148,14 @@ export const LegacySection = () => {
             <FadeIn delay={0.2} className="flex flex-col items-center justify-center p-8 text-center border-y border-zinc-800 lg:border-y-0 lg:border-x">
               <span className="text-3xl text-zinc-600 mb-4">↔</span>
               <span className="text-2xl font-serif text-white tracking-widest">GEOH</span>
-              <span className="text-xs uppercase tracking-widest text-zinc-500 mt-2">Alinea ambas visiones</span>
+              <span className="text-xs uppercase tracking-widest text-zinc-500 mt-2">Alinea ambas generaciones</span>
             </FadeIn>
 
             {/* 2da Generación */}
             <FadeIn delay={0.4} className="bg-zinc-800 border border-zinc-700 p-10 sm:p-14">
               <span className="text-[9px] uppercase tracking-[0.2em] text-zinc-400 block mb-6">Segunda generación / Continuidad</span>
-              <h3 className="text-2xl font-serif mb-4">Lo que puede evolucionar</h3>
-              <p className="text-sm text-zinc-400 font-light mb-8">La gestión profesional, la información compartida, la toma de decisiones y la capacidad de adaptación del hotel.</p>
+              <h3 className="text-2xl font-serif mb-4">Lo que se moderniza</h3>
+              <p className="text-sm text-zinc-400 font-light mb-8">Gestión, información, toma de decisiones y capacidad de adaptación.</p>
               <ul className="space-y-4 text-xs text-zinc-300">
                 <li className="flex gap-3"><span className="text-zinc-500">+</span> Gobierno y rendición de cuentas</li>
                 <li className="flex gap-3"><span className="text-zinc-500">+</span> Disciplina comercial y financiera</li>
@@ -176,36 +177,36 @@ export const LegacySection = () => {
               </h2>
             </div>
             <p className="text-sm text-zinc-500 font-light max-w-sm leading-relaxed pb-2">
-              De la primera conversación al seguimiento directivo: cada etapa tiene un objetivo, una persona responsable y una conversación de resultados.
+              Cuatro etapas, cada una con objetivo, responsable y revisión de resultados.
             </p>
           </FadeIn>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-zinc-200 border border-zinc-200 shadow-sm">
             <FadeIn delay={0.1} className="bg-white p-10 relative group hover:bg-zinc-50 transition-colors">
-              <span className="text-lg font-serif text-[#a27642] italic block mb-6">01 / Entender</span>
-              <h3 className="text-xl font-serif text-zinc-900 mb-3">Diagnosticar</h3>
-              <p className="text-xs text-zinc-500 font-light leading-relaxed">Activo, operación, marca, mercado, situación y objetivos del propietario.</p>
+              <span className="text-lg font-serif text-[#a27642] italic block mb-6">01 / Diagnóstico</span>
+              <h3 className="text-xl font-serif text-zinc-900 mb-3">Diagnóstico</h3>
+              <p className="text-xs text-zinc-500 font-light leading-relaxed">Inmueble, operación, marca, mercado y objetivos del propietario.</p>
               <span className="absolute top-10 right-8 text-[#a27642] opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
             </FadeIn>
 
             <FadeIn delay={0.2} className="bg-white p-10 relative group hover:bg-zinc-50 transition-colors">
-              <span className="text-lg font-serif text-[#a27642] italic block mb-6">02 / Alinear</span>
-              <h3 className="text-xl font-serif text-zinc-900 mb-3">Definir el rumbo</h3>
-              <p className="text-xs text-zinc-500 font-light leading-relaxed">Presupuesto, prioridades, metas operativas, alcance y acuerdos de gobierno.</p>
+              <span className="text-lg font-serif text-[#a27642] italic block mb-6">02 / Planeación</span>
+              <h3 className="text-xl font-serif text-zinc-900 mb-3">Planeación</h3>
+              <p className="text-xs text-zinc-500 font-light leading-relaxed">Presupuesto, metas, alcance y reglas de decisión.</p>
               <span className="absolute top-10 right-8 text-[#a27642] opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
             </FadeIn>
 
             <FadeIn delay={0.3} className="bg-white p-10 relative group hover:bg-zinc-50 transition-colors">
-              <span className="text-lg font-serif text-[#a27642] italic block mb-6">03 / Ejecutar</span>
-              <h3 className="text-xl font-serif text-zinc-900 mb-3">Gestionar el día a día</h3>
-              <p className="text-xs text-zinc-500 font-light leading-relaxed">Demanda, tarifa, estándares, equipos, costos y cuidado del activo.</p>
+              <span className="text-lg font-serif text-[#a27642] italic block mb-6">03 / Operación</span>
+              <h3 className="text-xl font-serif text-zinc-900 mb-3">Operación</h3>
+              <p className="text-xs text-zinc-500 font-light leading-relaxed">Ventas, estándares, equipo, costos y mantenimiento.</p>
               <span className="absolute top-10 right-8 text-[#a27642] opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
             </FadeIn>
 
             <FadeIn delay={0.4} className="bg-white p-10 relative group hover:bg-zinc-50 transition-colors">
-              <span className="text-lg font-serif text-[#a27642] italic block mb-6">04 / Dar visibilidad</span>
-              <h3 className="text-xl font-serif text-zinc-900 mb-3">Revisar y corregir</h3>
-              <p className="text-xs text-zinc-500 font-light leading-relaxed">Presupuesto, real, variación y acción. Decisiones con responsable y seguimiento.</p>
+              <span className="text-lg font-serif text-[#a27642] italic block mb-6">04 / Seguimiento</span>
+              <h3 className="text-xl font-serif text-zinc-900 mb-3">Seguimiento</h3>
+              <p className="text-xs text-zinc-500 font-light leading-relaxed">Presupuesto contra real, variaciones y acciones con responsable.</p>
               <span className="absolute top-10 right-8 text-[#a27642] opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
             </FadeIn>
           </div>
@@ -221,10 +222,10 @@ export const LegacySection = () => {
             <FadeIn>
               <span className="text-[10px] uppercase tracking-[0.3em] text-[#a27642] block mb-4">El legado también se mide</span>
               <h2 className="text-3xl sm:text-5xl font-serif text-zinc-900 leading-tight mb-8">
-                Menos "así se ha hecho". Más <span className="italic text-[#a27642]">"esto está pasando".</span>
+                Decisiones con datos, <span className="italic text-[#a27642]">no con costumbre.</span>
               </h2>
               <p className="text-sm text-zinc-600 font-light leading-relaxed mb-10 max-w-md">
-                Convertimos la operación diaria en información útil para el propietario y el equipo directivo. El tablero se adapta al hotel y al alcance acordado; cada indicador debe llevar a una decisión, no quedarse en una lámina.
+                La operación diaria se resume en un tablero para el propietario y la dirección. Cada indicador tiene un responsable y una acción asociada.
               </p>
               <div className="flex flex-wrap gap-3">
                 <span className="px-4 py-2 border border-zinc-300 rounded-full text-[9px] font-bold tracking-widest uppercase text-zinc-600">Ingreso rentable</span>
@@ -244,11 +245,12 @@ export const LegacySection = () => {
                 </div>
               </div>
 
+              {/* Columnas actualizadas */}
               <div className="grid grid-cols-4 gap-4 text-[9px] tracking-widest uppercase text-zinc-500 mb-4 px-2">
-                <span>Frente</span>
-                <span>Lectura</span>
+                <span>Área</span>
+                <span>Situación</span>
                 <span>Responsable</span>
-                <span className="text-right">Siguiente paso</span>
+                <span className="text-right">Acción</span>
               </div>
 
               <div className="space-y-0">
@@ -280,7 +282,7 @@ export const LegacySection = () => {
 
               <div className="flex flex-col sm:flex-row justify-between gap-4 border-t border-white/20 mt-2 pt-5 text-[10px] text-zinc-400">
                 <span><b className="text-white">Presupuesto</b> · Real · Variación · Acción</span>
-                <span>Con cadencia acordada</span>
+                <span>Con la frecuencia acordada</span>
               </div>
             </FadeIn>
 
