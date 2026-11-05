@@ -184,11 +184,12 @@ export const HomeFeatures = () => {
 
       {/* 4. Visibilidad e Inicio con Imagen Panorámica */}
       <section className="bg-[#0A0A0A] text-[#F2F2F2] relative">
-        <div className="w-full h-[40vh] sm:h-[50vh] overflow-hidden">
+        <div className="w-full h-[40vh] sm:h-[50vh] overflow-hidden bg-[#0A0A0A]">
           <img 
-            src="https://scontent-qro1-1.xx.fbcdn.net/v/t39.30808-6/544910070_1212031107610910_8652993441363456773_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x1365&ctp=s2048x1365&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=mn8WAs37fTUQ7kNvwEPoQlz&_nc_oc=AdoBJiaDYCSrA6-SrsEqbHw_FP2HjjA5B6Sn9ULDQ5nZQo4vCAPfKvASp62CKCs2US8&_nc_zt=23&_nc_ht=scontent-qro1-1.xx&_nc_gid=4sP9M4RWr2Vn5S4VSu1t5A&_nc_ss=7b289&oh=00_AQOXL7J7asrl1URmnYbW1tIyDkZTgmCozicbhYUQ0_H71w&oe=6AE00937" 
+            src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/9a/6d/50/bienvenidos-a-hilton.jpg?w=1100&h=-1&s=1" 
             alt="Lobby Hotel" 
-            className="w-full h-full object-cover opacity-30 grayscale mix-blend-overlay hover:scale-105 transition-transform duration-1000"
+            /* Se eliminó mix-blend-overlay y se ajustó la opacidad al 30% para un look ejecutivo */
+            className="w-full h-full object-cover opacity-30 grayscale hover:scale-105 transition-transform duration-1000"
           />
         </div>
 
