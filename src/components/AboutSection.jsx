@@ -20,10 +20,10 @@ export const AboutSection = () => {
             </p>
           </div>
           <div className="lg:col-span-5 lg:pt-14 space-y-6">
-            <p className="text-sm sm:text-base text-[#5C5E66] font-light leading-relaxed">
+            <p className="text-lg sm:text-xl text-[#5C5E66] font-light leading-relaxed">
               GEOH pone a disposición del propietario su experiencia, su equipo y sus sistemas con un objetivo: aumentar el retorno de la inversión.
             </p>
-            <p className="text-sm sm:text-base text-[#5C5E66] font-light leading-relaxed">
+            <p className="text-lg sm:text-xl text-[#5C5E66] font-light leading-relaxed">
               Implementamos procesos y controles en cada área del hotel. La calidad del servicio se sostiene y el resultado se refleja en la utilidad de cada propiedad.
             </p>
           </div>
