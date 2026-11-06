@@ -3,12 +3,11 @@ import { OwnerCentricity } from './OwnerCentricity';
 
 export const AboutSection = () => {
   return (
-    <section id="nosotros" className="pt-32 bg-[#F2F2F2]">
+    <section id="nosotros" className="pt-32 bg-[#F2F2F2] flex flex-col">
       
-      {/* 1. ¿Quiénes Somos? (Textos Serio Ejecutivo + Nueva Paleta) */}
-      <div className="max-w-7xl mx-auto px-6 mb-20">
+      {/* 1. ¿Quiénes Somos? */}
+      <div className="max-w-7xl mx-auto px-6 mb-20 w-full">
         <FadeIn className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-          
           <div className="lg:col-span-7">
             <span className="text-[10px] uppercase tracking-[0.3em] text-[#804E3B] block mb-6 font-bold">
               Quiénes somos
@@ -20,7 +19,6 @@ export const AboutSection = () => {
               Convertimos información en decisiones de negocio.
             </p>
           </div>
-          
           <div className="lg:col-span-5 lg:pt-14 space-y-6">
             <p className="text-sm sm:text-base text-[#5C5E66] font-light leading-relaxed">
               GEOH pone a disposición del propietario su experiencia, su equipo y sus sistemas con un objetivo: aumentar el retorno de la inversión.
@@ -29,7 +27,6 @@ export const AboutSection = () => {
               Implementamos procesos y controles en cada área del hotel. La calidad del servicio se sostiene y el resultado se refleja en la utilidad de cada propiedad.
             </p>
           </div>
-
         </FadeIn>
       </div>
 
@@ -39,7 +36,7 @@ export const AboutSection = () => {
       </div>
 
       {/* 3. Trayectoria */}
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="w-full max-w-7xl mx-auto px-6">
         <section className="py-32 bg-[#F2F2F2] overflow-hidden border-t border-[#5C5E66]/20">
           <div className="max-w-7xl mx-auto">
             <FadeIn className="mb-20">
@@ -57,7 +54,6 @@ export const AboutSection = () => {
 
             <FadeIn delay={0.2}>
               <div className="flex overflow-x-auto pb-12 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
-                
                 {/* 2013 */}
                 <div className="flex-none w-[85vw] sm:w-[350px] md:w-[400px] relative snap-start">
                   <div className="absolute top-2 left-0 w-full h-[1px] bg-[#5C5E66]/30"></div>
@@ -83,13 +79,14 @@ export const AboutSection = () => {
                     </p>
                   </div>
                 </div>
-
               </div>
             </FadeIn>
           </div>
         </section>
       </div>
-      
     </section>
+    
   );
+
+  
 };

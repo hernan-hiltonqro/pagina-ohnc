@@ -35,53 +35,53 @@ export const ContactSection = () => {
   };
 
   return (
-    <section className="bg-white py-24 sm:py-32 border-b border-zinc-200">
+    <section className="bg-white py-24 sm:py-32 border-b border-[#5C5E66]/20">
       <div className="max-w-7xl mx-auto px-6">
         
         <FadeIn className="text-center max-w-3xl mx-auto mb-20">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-[#a27642] block mb-4 font-bold">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-[#804E3B] block mb-4 font-bold">
             Contacto
           </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#0b172a] leading-[1.1] mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#2B2C30] leading-[1.1] mb-6">
             Inicie su proceso <br />
-            <span className="italic text-[#5c6b7f] font-light">de diagnóstico.</span>
+            <span className="italic text-[#5C5E66] font-light">de diagnóstico.</span>
           </h1>
-          <p className="text-base text-[#5c6b7f] font-light leading-relaxed">
+          <p className="text-base text-[#5C5E66] font-light leading-relaxed">
             El equipo directivo revisa cada solicitud. Respuesta en un plazo máximo de 48 horas hábiles para agendar el diagnóstico.
           </p>
         </FadeIn>
 
-        <FadeIn className="grid grid-cols-1 lg:grid-cols-12 shadow-2xl overflow-hidden border border-zinc-100">
+        <FadeIn className="grid grid-cols-1 lg:grid-cols-12 shadow-2xl overflow-hidden border border-[#5C5E66]/10 rounded-sm">
           
-          <div className="lg:col-span-5 bg-[#0b172a] text-white p-12 sm:p-16 relative overflow-hidden flex flex-col justify-between">
-            <div className="absolute top-0 right-0 w-48 h-48 bg-[#a27642] opacity-10 blur-[50px] rounded-full pointer-events-none"></div>
+          <div className="lg:col-span-5 bg-[#0A0A0A] text-white p-12 sm:p-16 relative overflow-hidden flex flex-col justify-between">
+            <div className="absolute top-0 right-0 w-48 h-48 bg-[#552828] opacity-20 blur-[50px] rounded-full pointer-events-none"></div>
             
             <div className="relative z-10">
-              <h3 className="text-3xl sm:text-4xl font-serif mb-6 text-white leading-tight">Evaluación confidencial</h3>
-              <p className="text-sm text-zinc-300 font-light leading-relaxed mb-12">
+              <h3 className="text-3xl sm:text-4xl font-serif mb-6 text-[#F2F2F2] leading-tight">Evaluación confidencial</h3>
+              <p className="text-sm text-[#F2F2F2]/70 font-light leading-relaxed mb-12">
                 La información de su hotel la revisa únicamente el equipo directivo.
               </p>
             </div>
 
-            <div className="space-y-10 text-sm font-light text-zinc-300 relative z-10 border-t border-zinc-700/50 pt-10">
+            <div className="space-y-10 text-sm font-light text-[#F2F2F2]/70 relative z-10 border-t border-[#F2F2F2]/10 pt-10">
               <div>
-                <p className="text-[10px] uppercase tracking-widest text-[#5c6b7f] mb-2 font-bold">Siguiente paso</p>
+                <p className="text-[10px] uppercase tracking-widest text-[#804E3B] mb-2 font-bold">Siguiente paso</p>
                 <p className="leading-relaxed">Firma de un acuerdo de confidencialidad antes de revisar cualquier dato operativo o financiero.</p>
               </div>
             </div>
           </div>
 
-          <div className="lg:col-span-7 bg-white p-12 sm:p-16 lg:p-20">
+          <div className="lg:col-span-7 bg-[#F2F2F2] p-12 sm:p-16 lg:p-20">
             {succeeded ? (
               <div className="py-12 text-center space-y-6">
-                <div className="w-16 h-16 bg-[#0b172a] text-[#e8d5a5] rounded-full flex items-center justify-center mx-auto text-2xl font-serif mb-6">✓</div>
-                <h3 className="text-2xl font-serif text-[#0b172a]">Solicitud recibida</h3>
-                <p className="text-zinc-600 font-light max-w-md mx-auto text-sm leading-relaxed mb-8">
+                <div className="w-16 h-16 bg-[#2B2C30] text-[#804E3B] rounded-full flex items-center justify-center mx-auto text-2xl font-serif mb-6">✓</div>
+                <h3 className="text-2xl font-serif text-[#2B2C30]">Solicitud recibida</h3>
+                <p className="text-[#5C5E66] font-light max-w-md mx-auto text-sm leading-relaxed mb-8">
                   Le contactaremos en un plazo máximo de 48 horas hábiles.
                 </p>
                 <button 
                   onClick={() => setSucceeded(false)}
-                  className="inline-block text-[10px] uppercase tracking-widest text-[#a27642] font-bold border-b border-[#a27642] pb-1 hover:text-[#0b172a] hover:border-[#0b172a] transition-colors"
+                  className="inline-block text-[10px] uppercase tracking-widest text-[#804E3B] font-bold border-b border-[#804E3B] pb-1 hover:text-[#2B2C30] hover:border-[#2B2C30] transition-colors"
                 >
                   Enviar otra solicitud
                 </button>
@@ -93,39 +93,39 @@ export const ContactSection = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                   <div className="flex flex-col">
-                    <label htmlFor="nombre" className="text-[9px] uppercase tracking-widest text-zinc-400 mb-2 font-bold">Nombre completo</label>
-                    <input type="text" id="nombre" name="nombre" required className="border-b border-zinc-200 py-2 focus:outline-none focus:border-[#0b172a] bg-transparent text-sm text-[#0b172a] transition-colors placeholder:text-zinc-300" placeholder="Ej. Carlos Mendoza" />
+                    <label htmlFor="nombre" className="text-[9px] uppercase tracking-widest text-[#5C5E66] mb-2 font-bold">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" required className="border-b border-[#5C5E66]/30 py-2 focus:outline-none focus:border-[#804E3B] bg-transparent text-sm text-[#2B2C30] transition-colors placeholder:text-[#5C5E66]/40" placeholder="Ej. Carlos Mendoza" />
                   </div>
                   <div className="flex flex-col">
-                    <label htmlFor="empresa" className="text-[9px] uppercase tracking-widest text-zinc-400 mb-2 font-bold">Hotel o empresa</label>
-                    <input type="text" id="empresa" name="empresa" required className="border-b border-zinc-200 py-2 focus:outline-none focus:border-[#0b172a] bg-transparent text-sm text-[#0b172a] transition-colors placeholder:text-zinc-300" placeholder="Nombre de la propiedad" />
+                    <label htmlFor="empresa" className="text-[9px] uppercase tracking-widest text-[#5C5E66] mb-2 font-bold">Hotel o empresa</label>
+                    <input type="text" id="empresa" name="empresa" required className="border-b border-[#5C5E66]/30 py-2 focus:outline-none focus:border-[#804E3B] bg-transparent text-sm text-[#2B2C30] transition-colors placeholder:text-[#5C5E66]/40" placeholder="Nombre de la propiedad" />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                   <div className="flex flex-col">
-                    <label htmlFor="correo" className="text-[9px] uppercase tracking-widest text-zinc-400 mb-2 font-bold">Correo electrónico</label>
-                    <input type="email" id="correo" name="email" required className="border-b border-zinc-200 py-2 focus:outline-none focus:border-[#0b172a] bg-transparent text-sm text-[#0b172a] transition-colors placeholder:text-zinc-300" placeholder="correo@empresa.com" />
+                    <label htmlFor="correo" className="text-[9px] uppercase tracking-widest text-[#5C5E66] mb-2 font-bold">Correo electrónico</label>
+                    <input type="email" id="correo" name="email" required className="border-b border-[#5C5E66]/30 py-2 focus:outline-none focus:border-[#804E3B] bg-transparent text-sm text-[#2B2C30] transition-colors placeholder:text-[#5C5E66]/40" placeholder="correo@empresa.com" />
                   </div>
                   <div className="flex flex-col">
-                    <label htmlFor="telefono" className="text-[9px] uppercase tracking-widest text-zinc-400 mb-2 font-bold">Teléfono</label>
-                    <input type="tel" id="telefono" name="telefono" className="border-b border-zinc-200 py-2 focus:outline-none focus:border-[#0b172a] bg-transparent text-sm text-[#0b172a] transition-colors placeholder:text-zinc-300" placeholder="+52 123 456 7890" />
+                    <label htmlFor="telefono" className="text-[9px] uppercase tracking-widest text-[#5C5E66] mb-2 font-bold">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" className="border-b border-[#5C5E66]/30 py-2 focus:outline-none focus:border-[#804E3B] bg-transparent text-sm text-[#2B2C30] transition-colors placeholder:text-[#5C5E66]/40" placeholder="+52 123 456 7890" />
                   </div>
                 </div>
 
                 <div className="flex flex-col">
-                  <label htmlFor="mensaje" className="text-[9px] uppercase tracking-widest text-zinc-400 mb-2 font-bold">Situación actual del hotel</label>
-                  <textarea id="mensaje" name="mensaje" rows="4" required className="border-b border-zinc-200 py-2 focus:outline-none focus:border-[#0b172a] bg-transparent text-sm text-[#0b172a] transition-colors resize-none placeholder:text-zinc-300" placeholder="Describa brevemente el hotel, su situación actual y el tipo de gestión que busca."></textarea>
+                  <label htmlFor="mensaje" className="text-[9px] uppercase tracking-widest text-[#5C5E66] mb-2 font-bold">Situación actual del hotel</label>
+                  <textarea id="mensaje" name="mensaje" rows="4" required className="border-b border-[#5C5E66]/30 py-2 focus:outline-none focus:border-[#804E3B] bg-transparent text-sm text-[#2B2C30] transition-colors resize-none placeholder:text-[#5C5E66]/40" placeholder="Describa brevemente el hotel, su situación actual y el tipo de gestión que busca."></textarea>
                 </div>
 
                 {error && (
-                  <p className="text-red-600 text-xs">No fue posible enviar la solicitud. Verifique su conexión e inténtelo de nuevo.</p>
+                  <p className="text-[#552828] text-xs">No fue posible enviar la solicitud. Verifique su conexión e inténtelo de nuevo.</p>
                 )}
 
                 <button 
                   type="submit" 
                   disabled={submitting}
-                  className="mt-4 bg-[#0b172a] px-10 py-5 text-xs uppercase tracking-[0.2em] font-medium text-white hover:bg-[#a27642] transition-all duration-300 w-full sm:w-auto shadow-lg disabled:opacity-50"
+                  className="mt-4 bg-[#2B2C30] px-10 py-5 text-xs uppercase tracking-[0.2em] font-bold text-[#F2F2F2] hover:bg-[#804E3B] transition-all duration-300 w-full sm:w-auto shadow-lg disabled:opacity-50"
                 >
                   {submitting ? 'Enviando solicitud...' : 'Solicitar diagnóstico'}
                 </button>

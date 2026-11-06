@@ -66,7 +66,7 @@ export const siteData = {
           items: "Estándares, consistencia del servicio, comentarios y resolución de problemas." 
         },
         { 
-          title: "Talento y liderazgo operativo", 
+          title: "Talento y hoteles en zgo operativo", 
           items: "Desarrollo de gestores capaces de leer indicadores, decidir y hacerse responsables." 
         },
         { 

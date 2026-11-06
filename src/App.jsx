@@ -15,6 +15,7 @@ import { PortfolioSection } from './components/PortfolioSection';
 import { InvestorsSection } from './components/InvestorsSection';
 import { ContactSection } from './components/ContactSection';
 import { LegacySection } from './components/LegacySection';
+import { CtaContact } from './components/CtaContact'; // <-- 1. Agregas esta importación
 
 export default function App() {
   return (
@@ -27,7 +28,9 @@ export default function App() {
             {/* Ruta principal corregida: Solo llama a HomeFeatures */}
             <Route path="/" element={<HomeFeatures />} />
             
-            <Route path="/nosotros" element={<><AboutSection /><TeamSection /></>} />
+            {/* 2. Agregas <CtaContact /> al final de esta ruta */}
+            <Route path="/nosotros" element={<><AboutSection /><TeamSection /><CtaContact /></>} />
+            
             <Route path="/legado" element={<LegacySection />} />
             <Route path="/servicios" element={<ServicesSection />} />
             <Route path="/portafolio" element={<PortfolioSection />} />
