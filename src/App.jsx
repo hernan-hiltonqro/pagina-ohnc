@@ -19,7 +19,7 @@ import { LegacySection } from './components/LegacySection';
 
 export default function App() {
   return (
-    <BrowserRouter basename="/pagina-ohnc/">
+    <BrowserRouter>
       <ScrollToTop />
       <div className="bg-white min-h-screen text-zinc-900 selection:bg-zinc-900 selection:text-white font-sans flex flex-col">
         <Navbar />
